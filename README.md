@@ -1,13 +1,13 @@
-# online-demo
+# 简介
 
-[Fork on StackBlitz ⚡️](https://stackblitz.com/fork/vuepress-theme-hope)
+使用 [VuePress](https://v2.vuepress.vuejs.org/zh/) 和 [vuepress-theme-hope](https://theme-hope.vuejs.press/zh/) 搭建的个人笔记站点。
 
-## Docs Demo
+如果要重新搭建一个新的类似的站点,可以使用[vuepress-theme-hope-starter](https://stackblitz.com/edit/vuepress-theme-hope-ydtj5p?file=README.md)
 
-- Preview: `npm run docs:dev`
-- Build: `npm run docs:build`
+# 运行
 
-## Blog Demo
+## 开发环境
+`npm run docs:dev`
 
-- Preview: `npm run blog:dev`
-- Build: `npm run blog:build`
+## 正式环境
+`npm run docs:dev`
