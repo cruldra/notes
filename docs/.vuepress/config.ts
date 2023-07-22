@@ -1,4 +1,4 @@
-import { defineUserConfig } from "vuepress";
+import {defineUserConfig} from "vuepress";
 import theme from "./theme.js";
 
 const base = <"/" | `/${string}/`>process.env["BASE"] || "/";
@@ -19,4 +19,6 @@ export default defineUserConfig({
   theme,
 
   shouldPrefetch: false,
+  plugins: [
+  ],
 });

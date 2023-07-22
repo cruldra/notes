@@ -1,16 +1,14 @@
 {
-  "name": "vuepress-theme-hope-starter",
-  "description": "A online demo for vuepress-theme-hope",
+  "name": "Cruldra's Notes",
+  "description": "Cruldra's Notes",
   "repository": {
     "type": "git",
-    "url": "git@github.com:vuepress-theme-hope/online-demo.git"
+    "url": "https://github.com/cruldra/notes.git"
   },
   "license": "MIT",
   "private": true,
   "packageManager": "pnpm@8.3.1",
   "scripts": {
-    "blog:dev": "vuepress dev blog",
-    "blog:build": "vuepress build blog",
     "dev": "pnpm run docs:dev",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
