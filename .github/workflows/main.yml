@@ -18,6 +18,8 @@ jobs:
         with:
           node-version: '18.x'
           cache: 'pnpm'
+        env:
+          PATH: ${{ env.PATH }}:/home/runner/.pnpm-store/versions/2.0.0/node_modules/.bin
       - name: Install dependencies
         run: pnpm install
 
