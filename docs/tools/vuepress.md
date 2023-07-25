@@ -1,5 +1,5 @@
 ---
-title: 从头开始搭建一个漂亮的博客站点
+title: Vuepress
 comment: false
 editLink: false
 prev: false
@@ -7,7 +7,8 @@ next: false
 order: 1
 ---
 
-大概思路
+
+## 大概思路
 
 用vuepress的hope主题搭建,然后利用github workflow自动部署到github pages
 

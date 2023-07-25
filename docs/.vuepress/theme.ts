@@ -10,15 +10,15 @@ export default hopeTheme(
     hostname,
 
     author: {
-      name: "Mr.Hope",
-      url: "https://mrhope.site",
+      name: "Cruldra",
+      url: "https://cruldra.com",
     },
 
     iconAssets: "fontawesome-with-brands",
 
     logo: "/logo.svg",
 
-    repo: "vuepress-theme-hope/vuepress-theme-hope",
+    repo: "cruldra/notes",
 
     docsDir: "demo/theme-docs/src",
 
@@ -35,7 +35,7 @@ export default hopeTheme(
         displayFooter: true,
 
         metaLocales: {
-          editLink: "Edit this page on GitHub",
+          editLink: "在 GitHub 上编辑此页",
         },
       },
 

@@ -4,6 +4,25 @@ export const zhNavbar = navbar([
     "/",
     // "/projects",
     {
+        text: "编程",
+        icon: "lightbulb",
+        prefix: "/programming",
+        children: [
+            {
+                text: "Mysql",
+                icon: "lightbulb",
+                link: "/mysql/安装/",
+                // children: [ ],
+            }, {
+                text: "Docker",
+                icon: "lightbulb",
+                link: "/docker/",
+                // children: [ ],
+            },
+        ],
+    },
+
+    {
       text: "项目",
       icon: "lightbulb",
        prefix: "/projects",
@@ -11,12 +30,16 @@ export const zhNavbar = navbar([
         {
           text: "二手车",
           icon: "lightbulb",
-            link: "/ershouche/",
+            link: "/二手车/简介/",
           // children: [ ],
         },
       ],
     },
-
+    {
+        text: "工具",
+        prefix: "/tools" ,
+        link:'/tools/'
+    },
 
     // "/demo/",
     /*{

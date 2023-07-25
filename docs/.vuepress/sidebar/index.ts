@@ -1,13 +1,11 @@
 import { sidebar } from "vuepress-theme-hope";
 
 export const zhSidebar = sidebar({
-  "/": [
+  "/projects/": [
     // "",
     {
       text: "项目",
       icon: "laptop-code",
-      prefix: "projects/",
-      link: "projects/",
       // children: [
       //   "ershouche/",
       // ],
@@ -28,5 +26,33 @@ export const zhSidebar = sidebar({
       children: "structure",
     },
     "slides",*/
+  ],
+
+
+  "/programming/": [
+    {
+      text: "编程",
+      icon: "laptop-code",
+      collapsible:true,
+      // children: [
+      //   "ershouche/",
+      // ],
+      children: "structure",
+    },
+
+  ],
+
+
+  "/tools/": [
+    {
+      text: "工具",
+      icon: "laptop-code",
+      collapsible:true,
+      // children: [
+      //   "ershouche/",
+      // ],
+      children: "structure",
+    },
+
   ],
 });
