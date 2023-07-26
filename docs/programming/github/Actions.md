@@ -53,4 +53,4 @@ order: 1
 
 以上步骤完成后,在本地随便改动某个文件后push到github上,然后就可以看到github actions的运行结果了
 
-![](assets%2F1.gif)
+![](./assets%2F1.gif)
