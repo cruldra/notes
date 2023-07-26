@@ -1,0 +1,61 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies and build web app
+        working-directory: ./web
+        run: |
+          pnpm install
+          pnpm run build
+
+      - name: Copy web app to public directory
+        run: |
+          cp -R ./web/dist/* ./public/
+          rm -rf ./web
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "cruldra@gmail.com"
+          git config --global user.name "cruldra"
+
+      - name: Commit changes to Gitee
+        run: |
+          git add .
+          git add ./public -f
+          git commit -m "Update by github workflow"
+          git remote set-url origin https://这里换成你的gitee用户名:这里换成你的gitee私有token@gitee.com/cruldra/zmesc.git
+          git push -u origin "master" -f

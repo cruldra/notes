@@ -8,7 +8,8 @@ const hostname =
 export default hopeTheme(
   {
     hostname,
-
+    // fullscreen: true,
+    print: true,
     author: {
       name: "Cruldra",
       url: "https://cruldra.com",

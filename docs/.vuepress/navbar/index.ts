@@ -10,13 +10,19 @@ export const zhNavbar = navbar([
         children: [
             {
                 text: "Mysql",
-                icon: "lightbulb",
                 link: "/mysql/安装/",
                 // children: [ ],
             }, {
                 text: "Docker",
-                icon: "lightbulb",
-                link: "/docker/",
+                link: "/docker/安装/",
+                // children: [ ],
+            },{
+                text: "Github",
+                link: "/github/",
+                // children: [ ],
+            },{
+                text: "Ubuntu",
+                link: "/ubuntu/",
                 // children: [ ],
             },
         ],
