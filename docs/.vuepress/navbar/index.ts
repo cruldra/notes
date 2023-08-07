@@ -7,7 +7,7 @@ export const zhNavbar = navbar([
         text: "编程",
         icon: "lightbulb",
         prefix: "/programming",
-        link:'/programming/docker/安装/',
+        link:'/programming/简介/',
         /*children: [
             {
                 text: "Mysql",
