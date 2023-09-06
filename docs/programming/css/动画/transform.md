@@ -87,6 +87,17 @@ document.getElementById('transformSelect').addEventListener('change', function()
 
 :::
 
+## [``translate3d``](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate3d)
+:::tip
+``translate3d``是CSS``transform``属性的一个函数,它用于在三维空间中移动元素,接受三个参数,分别对应``X``轴、``Y``轴和``Z``轴上的移动距离
+
+例如,``transform: translate3d(10px, 20px, 30px);``将元素在``X``轴方向上移动``10px``.在``Y``轴方向上移动``20px``,在``Z``轴方向上移动``30px``.
+
+:::
+
+:::warning
+
+:::
 
 ## 题外话
 上面这个演示例子的代码我自己没写一行，全是ai生成的，感觉这玩意儿以后会革了程序员的老命，特别是中国这种把编程这种技术活当苦力来做的国家,天朝是紧赶慢赶还是没赶上啊,就连我现在坐在这里写这篇文章,

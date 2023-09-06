@@ -1,0 +1,34 @@
+---
+title: nginx
+comment: false
+editLink: false
+prev: false
+next: false
+---
+## 安装
+
+### 使用命令行安装
+```bash
+# ubuntu
+apt install nginx
+```
+
+### 使用docker安装
+```bash
+# 使用docker快速安装
+docker run \
+--name nginx-luodi-pages \
+-d \
+-p  80:80 \
+-v /Users/dongjak/IdeaProjects/landing_pages/dist:/usr/share/nginx/html \
+nginx
+#--name 容器名称 
+#-d 后台运行 
+#-p 本地端口:容器端口  
+#-v 本地文件路径:容器内路径
+#镜像名称
+```
+
+## 工具
+
+- [nginx config builder](https://www.digitalocean.com/community/tools/nginx?global.app.lang=zhCN)
