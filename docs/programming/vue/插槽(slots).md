@@ -96,3 +96,61 @@ order: 1
 ```
 
 :::
+
+## 作用域插槽
+
+:::info
+如果要==在插槽中使用组件的数据==,就需要用到[`作用域插槽`](https://cn.vuejs.org/guide/components/slots.html#scoped-slots),作用域插槽的语法是`v-slot:item="slotProps"`,其中`item`是插槽的名称,`slotProps`是传递给插槽的数据.
+:::
+
+::: vue-playground
+@file App.vue
+
+```vue
+
+<template>
+  <div>
+    <child-component :list="list">
+      <template v-slot:item="{ item }">
+        <div class="item" :class="{ active: item.active }">{{ item.name }}</div>
+      </template>
+    </child-component>
+  </div>
+</template>
+
+<script setup>
+  import ChildComponent from './CustomComponent.vue';
+  import {ref} from "vue";
+
+  const list = ref([
+    {name: 'item1', active: true},
+    {name: 'item2', active: false},
+    {name: 'item3', active: true},
+  ]);
+</script>
+
+```
+
+@file CustomComponent.vue
+
+```vue
+<template>
+  <div>
+    <ul>
+      <li v-for="item in list" :key="item.name">
+        <slot name="item" :item="item"></slot>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script setup lang="ts">
+  import { withDefaults, defineProps } from 'vue';
+  interface Props {
+    list: Array;
+  }
+  const props = withDefaults(defineProps<Props>(), {
+    list: () => [],
+  });
+</script>
+```
