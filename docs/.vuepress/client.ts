@@ -1,4 +1,12 @@
-import "vuepress-theme-hope/presets/bounce-icon.scss";
-import "vuepress-theme-hope/presets/shinning-feature-panel.scss";
+// .vuepress/client.ts
+import { defineClientConfig } from "@vuepress/client";
+import 'uno.css';
 
-export default {};
+// import VueFullscreen from 'vue-fullscreen'
+export default defineClientConfig({
+    enhance: ({ app, router, siteData }) => {
+
+       // app.component("Full", Full);
+        // app.use(VueFullscreen);
+    },
+});

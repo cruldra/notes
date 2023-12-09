@@ -1,30 +1,36 @@
-import {defineUserConfig} from "vuepress";
+import {defineUserConfig, viteBundler} from "vuepress";
 import theme from "./theme.js";
+import UnoCSS from 'unocss/vite'
+import Components from 'unplugin-vue-components/vite';
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
+import AutoImport from "unplugin-auto-import/vite";
 import {searchProPlugin} from "vuepress-plugin-search-pro";
 import {cut} from "nodejs-jieba";
-
-const base = <"/" | `/${string}/`>process.env["BASE"] || "/";
-
-
 export default defineUserConfig({
-    base,
+    base: "/",
+
     lang: "zh-CN",
-    dest: "./dist",
-
-    locales: {
-        "/": {
-            lang: "zh-CN",
-            title: "一星的臭弟弟",
-            description: "vuepress-theme-hope 的文档演示",
+    title: "文档演示",
+    description: "vuepress-theme-hope 的文档演示",
+    bundler: viteBundler({
+        viteOptions: {
+            plugins:[UnoCSS(),
+                AutoImport({
+                    imports: ['vue'],
+                    dts: 'src/typings/auto-imports.d.ts',
+                    vueTemplate: true,
+                }),
+                Components({
+                    dts: 'src/typings/components.d.ts',
+                    resolvers: [
+                        NaiveUiResolver(),
+                    ]
+                }),
+            ]
         },
-    },
-
+        vuePluginOptions: {},
+    }),
     theme,
-    extendsMarkdown: (md) => {
-        const myPlugin = require('../../plugins/plantuml');
-        md.use(myPlugin);
-    },
-    shouldPrefetch: false,
     plugins: [
         searchProPlugin({
             // 配置选项
@@ -53,4 +59,6 @@ export default defineUserConfig({
         }),
 
     ],
+    // Enable it with pwa
+    // shouldPrefetch: false,
 });
