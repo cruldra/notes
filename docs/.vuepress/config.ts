@@ -9,9 +9,8 @@ import {cut} from "nodejs-jieba";
 const base = <"/" | `/${string}/`>process.env["BASE"] || "/";
 export default defineUserConfig({
     base,
-
     lang: "zh-CN",
-    title: "文档演示",
+    title: "一星的臭弟弟",
     description: "vuepress-theme-hope 的文档演示",
     bundler: viteBundler({
         viteOptions: {
