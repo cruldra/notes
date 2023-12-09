@@ -6,8 +6,9 @@ import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
 import AutoImport from "unplugin-auto-import/vite";
 import {searchProPlugin} from "vuepress-plugin-search-pro";
 import {cut} from "nodejs-jieba";
+const base = <"/" | `/${string}/`>process.env["BASE"] || "/";
 export default defineUserConfig({
-    base: "/",
+    base,
 
     lang: "zh-CN",
     title: "文档演示",
