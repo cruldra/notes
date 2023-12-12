@@ -49,8 +49,10 @@ jobs:
       - name: Build and generate static files
         run: pnpm run docs:build
 
+      - name: debug
+        run: ls dist/index.html
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/.vuepress/dist
+          publish_dir: dist
