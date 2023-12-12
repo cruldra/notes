@@ -1,0 +1,9 @@
+import{_ as n}from"./plugin-vue_export-helper-x3n3nnut.js";import{o as a,c as s,f as e}from"./app-aIhAEzpS.js";const t={},c=e(`<h2 id="简介" tabindex="-1"><a class="header-anchor" href="#简介" aria-hidden="true">#</a> 简介</h2><h2 id="安装" tabindex="-1"><a class="header-anchor" href="#安装" aria-hidden="true">#</a> 安装</h2><h2 id="一个简单的示例" tabindex="-1"><a class="header-anchor" href="#一个简单的示例" aria-hidden="true">#</a> 一个简单的示例</h2><div class="language-python line-numbers-mode" data-ext="py"><pre class="language-python"><code><span class="token keyword">import</span> PyV8
+
+<span class="token comment"># 创建一个JSContext对象</span>
+<span class="token keyword">with</span> PyV8<span class="token punctuation">.</span>JSContext<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> ctxt<span class="token punctuation">:</span>
+    <span class="token comment"># 执行JavaScript代码</span>
+    ctxt<span class="token punctuation">.</span><span class="token builtin">eval</span><span class="token punctuation">(</span><span class="token string">&quot;var x = 2 + 2;&quot;</span><span class="token punctuation">)</span>
+    <span class="token comment"># 从JavaScript环境中获取x变量的值并打印</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>ctxt<span class="token punctuation">.</span><span class="token builtin">locals</span><span class="token punctuation">.</span>x<span class="token punctuation">)</span>  <span class="token comment"># 输出：4</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,4),i=[c];function o(p,l){return a(),s("div",null,i)}const u=n(t,[["render",o],["__file","PyV8.html.vue"]]);export{u as default};
