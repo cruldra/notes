@@ -1,0 +1,15 @@
+import{_ as i}from"./plugin-vue_export-helper-x3n3nnut.js";import{r as o,o as l,c,a as n,b as s,d as a,w as t,f as p}from"./app-V4S7cV4c.js";const u={},r=n("h2",{id:"安装",tabindex:"-1"},[n("a",{class:"header-anchor",href:"#安装","aria-hidden":"true"},"#"),s(" 安装")],-1),d=n("p",null,[n("code",null,"pip install selenium")],-1),m={class:"hint-container tip"},v=n("p",{class:"hint-container-title"},"提示",-1),h=n("h2",{id:"和selenium配合",tabindex:"-1"},[n("a",{class:"header-anchor",href:"#和selenium配合","aria-hidden":"true"},"#"),s(" 和Selenium配合")],-1),_={class:"hint-container tip"},k=n("p",{class:"hint-container-title"},"提示",-1),b=n("code",null,"BeautifulSoup",-1),f=n("code",null,"Selenium",-1),B=n("code",null,"BeautifulSoup",-1),g=n("code",null,"Selenium",-1),w=p(`<div class="language-python line-numbers-mode" data-ext="py"><pre class="language-python"><code><span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
+<span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+
+<span class="token comment"># 创建Chrome浏览器实例</span>
+driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 打开网页</span>
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">&#39;https://www.example.com&#39;</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 解析网页内容</span>
+soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>driver<span class="token punctuation">.</span>page_source<span class="token punctuation">,</span> <span class="token string">&#39;html.parser&#39;</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 关闭浏览器</span>
+driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,1);function E(S,x){const e=o("RouterLink");return l(),c("div",null,[r,d,n("div",m,[v,n("p",null,[s("如果安装的很慢，可以"),a(e,{to:"/programming/python/pip.html#%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F"},{default:t(()=>[s("使用国内镜像")]),_:1})])]),h,n("div",_,[k,n("p",null,[b,s("库仅能解析静态HTML代码,但"),a(e,{to:"/programming/python/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/Selenium.html"},{default:t(()=>[f]),_:1}),s("可以,所以可以把它两结合起来,静态的部分用"),B,s("解析,动态的部分用"),g,s("解析,例如:")]),w])])}const N=i(u,[["render",E],["__file","BeautifulSoup.html.vue"]]);export{N as default};
