@@ -19,13 +19,15 @@
     "@types/node": "^20.8.10",
     "@vue/repl": "^3.0.0",
     "@vuepress/client": "^2.0.0-rc.0",
+    "naive-ui": "^2.35.0",
     "nodejs-jieba": "^0.1.2",
-    "vue": "^3.3.9",
-    "vuepress-plugin-search-pro": "^2.0.0-rc.2",
-    "vuepress": "^2.0.0-rc.0",
-    "vuepress-theme-hope": "^2.0.0-rc.1",
     "unocss": "^0.57.3",
     "unplugin-auto-import": "^0.17.1",
-    "unplugin-vue-components": "0.25.2"
+    "unplugin-vue-components": "0.25.2",
+    "vfonts": "^0.0.3",
+    "vue": "^3.3.9",
+    "vuepress": "^2.0.0-rc.0",
+    "vuepress-plugin-search-pro": "^2.0.0-rc.2",
+    "vuepress-theme-hope": "^2.0.0-rc.1"
   }
 }

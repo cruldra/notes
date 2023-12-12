@@ -58,6 +58,7 @@ export default hopeTheme({
       // chart: true,
 
       codetabs: true,
+      footnote: true,
 
       // insert component easily
       // component: true,

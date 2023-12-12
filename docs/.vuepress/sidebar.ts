@@ -1,33 +1,6 @@
 import { sidebar } from "vuepress-theme-hope";
 
 export default sidebar({
-  "/projects/": [
-    // "",
-    {
-      text: "项目",
-      icon: "laptop-code",
-      // children: [
-      //   "ershouche/",
-      // ],
-      children: "structure",
-    },
-   /* {
-      text: "案例",
-      icon: "laptop-code",
-      prefix: "demo/",
-      link: "demo/",
-      children: "structure",
-    },
-
-    {
-      text: "文档",
-      icon: "book",
-      prefix: "guide/",
-      children: "structure",
-    },
-    "slides",*/
-  ],
-
 
   "/programming/": [
     {
@@ -41,8 +14,6 @@ export default sidebar({
     },
 
   ],
-
-
   "/tools/": [
     {
       text: "工具",

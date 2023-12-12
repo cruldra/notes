@@ -7,7 +7,7 @@ export default navbar([
         text: "编程",
         icon: "lightbulb",
         prefix: "/programming",
-        link: '/programming/简介/',
+        link: '/programming/',
         /*children: [
             {
                 text: "Mysql",
