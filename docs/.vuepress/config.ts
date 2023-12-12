@@ -9,7 +9,7 @@ import {cut} from "nodejs-jieba";
 const base = <"/" | `/${string}/`>process.env["BASE"] || "/";
 export default defineUserConfig({
     base,
-    dest: "dist",
+    // dest: "dist",
     lang: "zh-CN",
     title: "一星的臭弟弟",
     description: "vuepress-theme-hope 的文档演示",
