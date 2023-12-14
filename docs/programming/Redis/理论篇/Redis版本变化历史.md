@@ -8,4 +8,3 @@ order: 1
 ---
 
 ## Redis版本变化历史
-<RedisVersionHistories/>

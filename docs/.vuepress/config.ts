@@ -1,8 +1,8 @@
 import {defineUserConfig, viteBundler} from "vuepress";
 import theme from "./theme.js";
 import UnoCSS from 'unocss/vite'
-import Components from 'unplugin-vue-components/vite';
-import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
+// import Components from 'unplugin-vue-components/vite';
+// import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
 import AutoImport from "unplugin-auto-import/vite";
 import {searchProPlugin} from "vuepress-plugin-search-pro";
 import {cut} from "nodejs-jieba";
@@ -21,12 +21,12 @@ export default defineUserConfig({
                     dts: 'src/typings/auto-imports.d.ts',
                     vueTemplate: true,
                 }),
-                Components({
-                    dts: 'src/typings/components.d.ts',
-                    resolvers: [
-                        NaiveUiResolver(),
-                    ]
-                }),
+                // Components({
+                //     dts: 'src/typings/components.d.ts',
+                //     resolvers: [
+                //         NaiveUiResolver(),
+                //     ]
+                // }),
             ]
         },
         vuePluginOptions: {},
