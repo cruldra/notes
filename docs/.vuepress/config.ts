@@ -15,12 +15,12 @@ export default defineUserConfig({
     description: "vuepress-theme-hope 的文档演示",
     bundler: viteBundler({
         viteOptions: {
-            resolve: {
-                mainFields: ['module', 'main'],
-            },
-            optimizeDeps: {
-                exclude: ['v-viewer']
-            },
+            // resolve: {
+            //     mainFields: ['module', 'main'],
+            // },
+            // optimizeDeps: {
+            //     exclude: ['v-viewer']
+            // },
             plugins:[UnoCSS(),
                 // AutoImport({
                 //     imports: ['vue'],

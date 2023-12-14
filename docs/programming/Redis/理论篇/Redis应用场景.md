@@ -18,9 +18,8 @@ tag:
 
 下面这几张图片展示了从单机无锁到需要分布式锁的演变过程:
 <script setup lang="ts">
-
-const images = [{src:'/assets/images/库存超卖问题/单机(无并发).png',alt:'单机(无并发)'},
-{src:'/assets/images/库存超卖问题/单机(低并发).png',alt:'单机(低并发)'},{src:'/assets/images/库存超卖问题/分布式(高并发).png',alt:'分布式(高并发)'}]
+const images = [{src:'https://zmesc.oss-cn-hangzhou.aliyuncs.com/notes/单机(无并发).png',alt:'单机(无并发)'},
+{src:'https://zmesc.oss-cn-hangzhou.aliyuncs.com/notes/单机(低并发).png',alt:'单机(低并发)'},{src:'https://zmesc.oss-cn-hangzhou.aliyuncs.com/notes/分布式(高并发).png',alt:'分布式(高并发)'}]
 
 </script>
 
