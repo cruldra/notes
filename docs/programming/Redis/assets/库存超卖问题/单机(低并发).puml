@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+title 单机低并发场景下库存变化
+
+actor 用户1
+participant 订单服务
+database 数据库
+actor 用户2
+
+autonumber
+用户1 -> 订单服务: 下单(持有锁)
+订单服务 -> 数据库: 检查库存
+alt#Gold #LightGreen 库存足够
+    订单服务 -> 订单服务: 继续后面的逻辑
+    订单服务 -> 数据库: 扣减库存
+    订单服务 -> 用户1: 下单成功(释放锁)
+else #Pink 库存不足
+autonumber 3
+    订单服务 -> 用户1: 下单失败(释放锁)
+end
+
+autonumber
+用户2 -[#red]> 订单服务: 下单(阻塞)
+rnote over 数据库,订单服务
+因此锁此时被用户1持有
+endrnote
+...1秒后...
+订单服务 -> 订单服务: 获得用户1释放掉的锁
+订单服务 -> 数据库: 检查库存
+alt#Gold #LightGreen 库存足够
+    订单服务 -> 订单服务: 继续后面的逻辑
+    订单服务 -> 数据库: 扣减库存
+    订单服务 -> 用户2: 下单成功(释放锁)
+else #Pink 库存不足
+autonumber 4
+    订单服务 -> 用户2: 下单失败(释放锁)
+end
+@enduml

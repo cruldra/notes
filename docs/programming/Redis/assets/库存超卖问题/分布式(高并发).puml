@@ -1,0 +1,47 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+title 分布式高并发场景下库存变化
+legend
+<b>分布式高并发场景下系统变得更复杂啦,包括:</b>
+# 订单服务作为分布式子系统被部署在多台机器上作为一个集群
+# 引入Redis来缓存库存数据以减少网络开销
+end legend
+actor 用户1
+participant 订单服务1
+participant 订单服务2
+database Redis
+database 数据库
+actor 用户2
+
+autonumber
+用户1 -> 订单服务1: 下单
+activate 订单服务1
+订单服务1 -> Redis: 持有锁
+订单服务1 -> Redis: 检查库存
+alt#Gold #LightGreen 库存足够
+    订单服务1 -> 订单服务1: 继续后面的逻辑
+    订单服务1 -> Redis: 扣减库存
+    订单服务1 -> 用户1: 下单成功(释放锁)
+else #Pink 库存不足
+autonumber 4
+    订单服务1 -> 用户1: 下单失败(释放锁)
+end
+deactivate 订单服务1
+
+autonumber
+用户2 -[#red]> 订单服务2: 下单(被阻塞)\n因此锁此时被用户1持有
+activate 订单服务2
+...1秒后...
+订单服务2 -> 订单服务2: 获得用户1释放掉的锁
+订单服务2 -> 数据库: 检查库存
+alt#Gold #LightGreen 库存足够
+    订单服务2 -> 订单服务2: 继续后面的逻辑
+    订单服务2 -> 数据库: 扣减库存
+    订单服务2 -> 用户2: 下单成功(释放锁)
+else #Pink 库存不足
+autonumber 4
+    订单服务2 -> 用户2: 下单失败(释放锁)
+end
+ deactivate 订单服务2
+@enduml

@@ -3,7 +3,7 @@ import theme from "./theme.js";
 import UnoCSS from 'unocss/vite'
 // import Components from 'unplugin-vue-components/vite';
 // import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
-import AutoImport from "unplugin-auto-import/vite";
+// import AutoImport from "unplugin-auto-import/vite";
 import {searchProPlugin} from "vuepress-plugin-search-pro";
 import {cut} from "nodejs-jieba";
 const base = <"/" | `/${string}/`>process.env["BASE"] || "/";
@@ -15,19 +15,28 @@ export default defineUserConfig({
     description: "vuepress-theme-hope 的文档演示",
     bundler: viteBundler({
         viteOptions: {
+            resolve: {
+                mainFields: ['module', 'main'],
+            },
+            optimizeDeps: {
+                exclude: ['v-viewer']
+            },
             plugins:[UnoCSS(),
-                AutoImport({
-                    imports: ['vue'],
-                    dts: 'src/typings/auto-imports.d.ts',
-                    vueTemplate: true,
-                }),
+                // AutoImport({
+                //     imports: ['vue'],
+                //     dts: 'src/typings/auto-imports.d.ts',
+                //     vueTemplate: true,
+                // }),
                 // Components({
                 //     dts: 'src/typings/components.d.ts',
                 //     resolvers: [
                 //         NaiveUiResolver(),
                 //     ]
                 // }),
-            ]
+            ],
+            // optimizeDeps:{
+            //     exclude:['v-viewer']
+            // }
         },
         vuePluginOptions: {},
     }),
