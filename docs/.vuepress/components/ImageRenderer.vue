@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import {component as viewer} from 'v-viewer'
+// import {component as viewer} from 'v-viewer'
 import {IImageRenderer} from "@dongjak-public-types/table";
-import {api as viewerApi} from "v-viewer"
-import Viewer from 'v-viewer'
+// import {api as viewerApi} from "v-viewer"
+import * as Viewer from 'v-viewer'
 import {computed, onMounted} from "vue";
-// const viewer = Viewer.component
-// const viewerApi = Viewer.api
+const viewer = Viewer.component
+const viewerApi = Viewer.api
 
 onMounted(() => {
   // alert(viewer)
@@ -22,7 +22,7 @@ const props = withDefaults(defineProps<Props>(),{
     altField: 'alt',
     width: 100,
     height: 100,
-    throttleMode: true
+    throttleMode: false
   }),
 })
 const images = computed(() => {
@@ -76,15 +76,19 @@ const showImages = () => {
   <img
       @click="showImages"
       v-if="isValidate&& props.renderer.throttleMode"
-      v-for="(image,index) in images"
-      :key="index"
       :width="width"
       :height="height"
-      :src="image.src"
-      :alt="image.alt"
+      :src="images[0].src"
+      :alt="images[0].alt"
   />
-  <viewer class="flex col-gap-1px" :images="images" v-else>
+
+
+  <div class="flex" v-else>
+    <viewer class="flex col-gap-1px" :images="images" >
+
+    </viewer>
     <img
+        class="m-r-10px"
         :width="width"
         :height="height"
         v-for="(image,index) in images"
@@ -92,7 +96,7 @@ const showImages = () => {
         :src="image.src"
         :alt="image.alt"
     />
-  </viewer>
+  </div>
 </template>
 
 <style>

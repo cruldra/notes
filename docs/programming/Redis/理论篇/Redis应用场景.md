@@ -17,11 +17,16 @@ tag:
 **分布式锁**用于==在分布式系统中对共享资源进行互斥访问==.传统的单机锁无法满足分布式环境下的需求,而Redis的单线程特性和原子性操作使其成为实现分布式锁的理想选择
 
 下面这几张图片展示了从单机无锁到需要分布式锁的演变过程:
+<script setup lang="ts">
 
-![单机(无并发).png](../assets/库存超卖问题/单机(无并发).png)
-![单机(低并发).png](../assets/库存超卖问题/单机(低并发).png)
-![单机(高并发).png](../assets/库存超卖问题/分布式(高并发).png)
-<!--<ImageRenderer :value="[{src:'http://notes/assets/%E5%8D%95%E6%9C%BA(%E4%BD%8E%E5%B9%B6%E5%8F%91)-nOuF31mV.png',alt:'单机(无并发).png'}]" />-->
+const images = [{src:'/assets/images/库存超卖问题/单机(无并发).png',alt:'单机(无并发)'},
+{src:'/assets/images/库存超卖问题/单机(低并发).png',alt:'单机(低并发)'},{src:'/assets/images/库存超卖问题/分布式(高并发).png',alt:'分布式(高并发)'}]
+
+</script>
+
+
+<ImageRenderer :value="images" />
+
 ### 使用Redis作为解决方案
 #### 第一步:尝试获取锁
 
