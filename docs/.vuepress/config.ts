@@ -4,6 +4,9 @@ import UnoCSS from 'unocss/vite'
 // import Components from 'unplugin-vue-components/vite';
 // import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
 // import AutoImport from "unplugin-auto-import/vite";
+import { getDirname, path } from "@vuepress/utils";
+const __dirname = getDirname(import.meta.url);
+
 import {searchProPlugin} from "vuepress-plugin-search-pro";
 import {cut} from "nodejs-jieba";
 const base = <"/" | `/${string}/`>process.env["BASE"] || "/";
@@ -15,11 +18,20 @@ export default defineUserConfig({
     description: "vuepress-theme-hope 的文档演示",
     bundler: viteBundler({
         viteOptions: {
+            // define: {
+            //     'VITE_APP_ENV': process.env.VITE_APP_ENV,
+            // },
+            ssr: {
+                // SSR 相关配置
+                noExternal: ['vue3-audio-player'],
+            },
             // resolve: {
             //     mainFields: ['module', 'main'],
             // },
             // optimizeDeps: {
-            //     exclude: ['v-viewer']
+            //     // include: ['vue3-audio-player']
+            //     entries: ['vue3-audio-player'],
+            //     force: true
             // },
             plugins:[UnoCSS(),
                 // AutoImport({
@@ -40,6 +52,9 @@ export default defineUserConfig({
         },
         vuePluginOptions: {},
     }),
+    // alias: {
+    //     "@MyComponent": path.resolve(__dirname, "components/Test.vue"),
+    // },
     theme,
     plugins: [
         searchProPlugin({

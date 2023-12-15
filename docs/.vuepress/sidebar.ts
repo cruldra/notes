@@ -37,5 +37,16 @@ export default sidebar({
       children: "structure",
     },
 
+  ],  "/terminology/": [
+    {
+      text: "术语",
+      icon: "laptop-code",
+      collapsible:true,
+      // children: [
+      //   "ershouche/",
+      // ],
+      children: "structure",
+    },
+
   ],
 });

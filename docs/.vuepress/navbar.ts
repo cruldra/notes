@@ -48,6 +48,19 @@ export default navbar([
         }
       ],*/
     },
+    {
+        text: "术语",
+        icon: "lightbulb",
+        prefix: "/terminology",
+        link: '/terminology/',
+        /* children: [
+           {
+             text: "安徽臻信通",
+             icon: "lightbulb",
+               link: '/projects/安徽臻信通/',
+           }
+         ],*/
+    },
     /* {
        text: "V2 文档",
        icon: "book",
