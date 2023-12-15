@@ -4,6 +4,7 @@ import {IImageRenderer} from "@dongjak-public-types/table";
 // import {api as viewerApi} from "v-viewer"
 import * as Viewer from 'v-viewer'
 import {computed, onMounted} from "vue";
+
 const viewer = Viewer.component
 const viewerApi = Viewer.api
 
@@ -11,13 +12,14 @@ onMounted(() => {
   // alert(viewer)
   // alert(viewerApi)
 })
+
 interface Props {
   renderer?: IImageRenderer<any>,
-  value:any
+  value: any
 }
 
-const props = withDefaults(defineProps<Props>(),{
-  renderer:  () => ({
+const props = withDefaults(defineProps<Props>(), {
+  renderer: () => ({
     srcField: 'src',
     altField: 'alt',
     width: 100,
@@ -33,7 +35,7 @@ const images = computed(() => {
           alt: item[props.renderer.altField!],
         };
       }
-  )??[]
+  ) ?? []
 })
 const isValidate = computed(() => {
   return images.value.length > 0
@@ -44,37 +46,43 @@ const width = computed(() => {
 const height = computed(() => {
   return props.renderer.height ?? 50
 })
-const showImages = () => {
-  viewerApi({
-    images: images.value,
-    options: {
-      toolbar: {
-        flipHorizontal: 1,
-        flipVertical: 1,
-        next: 1,
-        oneToOne: 1,
-        play: 1,
-        prev: 1,
-        reset: 1,
-        rotateLeft: 1,
-        rotateRight: 1,
-        zoomIn: 1,
-        zoomOut: 1,
-        // test: {
-        //   show: true,
-        //   click() {
-        //     alert(11)
-        //   }
-        // }
+
+let api: Viewer;
+const showImages = (index: number) => {
+
+  if (!api)
+    api = viewerApi({
+      images: images.value,
+      options: {
+        toolbar: {
+          flipHorizontal: 1,
+          flipVertical: 1,
+          next: 1,
+          oneToOne: 1,
+          play: 1,
+          prev: 1,
+          reset: 1,
+          rotateLeft: 1,
+          rotateRight: 1,
+          zoomIn: 1,
+          zoomOut: 1,
+          // test: {
+          //   show: true,
+          //   click() {
+          //     alert(11)
+          //   }
+          // }
+        }
       }
-    }
-  })
+    })
+  api.view(index)
 }
+
 </script>
 
-<template >
+<template>
   <img
-      @click="showImages"
+      @click="showImages(0)"
       v-if="isValidate&& props.renderer.throttleMode"
       :width="width"
       :height="height"
@@ -84,11 +92,12 @@ const showImages = () => {
 
 
   <div class="flex" v-else>
-    <viewer class="flex col-gap-1px" :images="images" >
+    <!--    <viewer class="flex col-gap-1px" :images="images" >-->
 
-    </viewer>
+    <!--    </viewer>-->
     <img
         class="m-r-10px"
+        @click="showImages(index)"
         :width="width"
         :height="height"
         v-for="(image,index) in images"
