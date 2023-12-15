@@ -26,4 +26,16 @@ export default sidebar({
     },
 
   ],
+  "/projects/": [
+    {
+      text: "项目",
+      icon: "laptop-code",
+      collapsible:true,
+      // children: [
+      //   "ershouche/",
+      // ],
+      children: "structure",
+    },
+
+  ],
 });

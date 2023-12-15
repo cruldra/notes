@@ -72,7 +72,7 @@ export default hopeTheme({
 
   encrypt: {
     config: {
-      "/demo/encrypt.html": ["1234"],
+      "/projects/安徽臻信通/": ["123394"],
     },
   },
 
