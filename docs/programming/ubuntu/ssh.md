@@ -10,7 +10,7 @@ order: 1
 ## 允许root登录
 
 ```bash
-＃　先设置root密码
+# 先设置root密码
 sudo passwd root
 
 # 编辑配置文件

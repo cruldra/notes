@@ -31,6 +31,7 @@
   "dependencies": {
     "@dongjak-public-types/table": "^3.5.0",
     "v-viewer": "^3.0.11",
+    "vidstack": "1",
     "vue3-audio-player": "^1.0.7"
   }
 }

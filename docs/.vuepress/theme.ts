@@ -82,6 +82,9 @@ export default hopeTheme({
   },
 
   plugins: {
+    components:{
+        components: ['VidStack']
+    },
     blog: true,
     photoSwipe: false,
     // install @waline/client before enabling it
