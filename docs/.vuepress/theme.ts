@@ -72,7 +72,7 @@ export default hopeTheme({
 
   encrypt: {
     config: {
-      "/projects/安徽臻信通/": ["123394"],
+      "/projects/机器人/付款历史": ["123394"],
     },
   },
 
@@ -102,7 +102,7 @@ export default hopeTheme({
       vuePlayground: true,
       // install chart.js before enabling it
       // chart: true,
-
+      tasklist: true,
       codetabs: true,
       footnote: true,
 
