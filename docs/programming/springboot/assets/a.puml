@@ -1,0 +1,23 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+interface Principal << interface >> {
+  + implies(Subject): boolean
+  + getName(): String
+}
+
+interface Authentication << interface >> {
+  + getPrincipal(): Object
+  + setAuthenticated(boolean): void
+  + getDetails(): Object
+  + getCredentials(): Object
+  + isAuthenticated(): boolean
+  + getAuthorities(): Collection<GrantedAuthority>
+}
+
+
+Authentication  -up[#008200,plain]-^  Principal
+@enduml
