@@ -20,7 +20,6 @@
     "@vue/repl": "^3.0.0",
     "@vuepress/client": "^2.0.0-rc.0",
     "@vuepress/utils": "2.0.0-rc.0",
-    "nodejs-jieba": "^0.1.2",
     "unocss": "^0.57.3",
     "unplugin-auto-import": "^0.17.1",
     "vue": "^3.3.9",

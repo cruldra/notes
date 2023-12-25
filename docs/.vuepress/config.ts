@@ -8,7 +8,7 @@ import { getDirname, path } from "@vuepress/utils";
 const __dirname = getDirname(import.meta.url);
 
 import {searchProPlugin} from "vuepress-plugin-search-pro";
-import {cut} from "nodejs-jieba";
+// import {cut} from "nodejs-jieba";
 const base = <"/" | `/${string}/`>process.env["BASE"] || "/";
 export default defineUserConfig({
     base,
@@ -63,11 +63,11 @@ export default defineUserConfig({
             // 索引全部内容
             indexContent: true,
 
-            indexOptions: {
-                // 使用 nodejs-jieba 进行分词
-                tokenize: (text, fieldName) =>
-                    fieldName === "id" ? [text] : cut(text, true),
-            },
+            // indexOptions: {
+            //     // 使用 nodejs-jieba 进行分词
+            //     tokenize: (text, fieldName) =>
+            //         fieldName === "id" ? [text] : cut(text, true),
+            // },
             // 为分类和标签添加索引
             customFields: [
                 {
