@@ -1,0 +1,27 @@
+---
+title: Gradle
+comment: false
+editLink: false
+prev: false
+next: false
+---
+
+## 常见问题
+
+### 控制台中文乱码
+
+![](https://cdn.jsdelivr.net/gh/hhypygy/images@master/20231227/image.4nsl43xs3gu0.webp)
+
+```ini
+-Dfile.encoding=UTF-8
+```
+
+### `Execution failed for task ':xxx:kaptGenerateStubsTestKotlin'`
+
+![](https://cdn.jsdelivr.net/gh/hhypygy/images@master/20231227/image.17t44otxp51c.webp)
+
+解决办法:
+
+![](https://cdn.jsdelivr.net/gh/hhypygy/images@master/20231227/image.4w2cas5mpng0.webp)
+
+至于原因是啥:**咱也不知道,咱也不敢问**
