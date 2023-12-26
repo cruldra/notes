@@ -1,0 +1,30 @@
+@startuml
+!theme plain
+
+actor 用户
+participant "前端界面" as Frontend
+participant "后台服务" as Backend
+participant "短信服务" as SMS
+database "Redis" as Cache
+database "数据库" as DB
+autonumber
+用户 -> Frontend : 输入手机号
+Frontend -> Backend : 点击"发送验证码"
+Backend -> SMS : 调用短信接口发送验证码
+SMS -> 用户 : 发送验证码短信
+Backend -> Cache : 缓存验证码\n(键:手机号)
+用户 -> Frontend : 输入验证码并点击"登录"
+Frontend -> Backend : 提交验证码进行登录
+Backend -> Cache : 获取缓存的验证码
+alt#Gold #LightBlue 验证码正确
+    Backend -> DB : 查询手机号对应的用户信息
+    alt#Gold #LightGreen 用户不存在
+        Backend -> DB : 新建用户信息
+    else 用户已存在
+    end
+    Backend -> 用户 : 生成并返回jwt token
+else 验证码错误
+    Backend -> 用户 : 返回错误信息
+end
+
+@enduml
