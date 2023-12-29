@@ -1,0 +1,23 @@
+@startuml
+
+package "Project A" #DDDDDD {
+    class StrUtil {
+        +String property
+    }
+}
+
+package "Project B" #FFCCCC {
+    class B {
+        ..api(A)..
+    }
+    B ..> StrUtil : uses
+}
+
+package "Project C" #CCCCFF {
+    class C {
+        ..implementation(B)..
+    }
+    C ..> B : uses
+}
+
+@enduml

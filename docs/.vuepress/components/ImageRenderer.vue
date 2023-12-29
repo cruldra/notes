@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // import {component as viewer} from 'v-viewer'
-import {IImageRenderer} from "@dongjak-public-types/table";
+// import {IImageRenderer} from "@dongjak-public-types/table";
 // import {api as viewerApi} from "v-viewer"
 import * as Viewer from 'v-viewer'
 import {computed, onMounted} from "vue";
@@ -14,25 +14,36 @@ onMounted(() => {
 })
 
 interface Props {
-  renderer?: IImageRenderer<any>,
-  value: any
+  // renderer?: IImageRenderer<any>,
+  width: number,
+  height: number,
+  value: any,
+  srcField: string,
+  altField: string,
+  throttleMode: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  renderer: () => ({
-    srcField: 'src',
-    altField: 'alt',
-    width: 100,
-    height: 100,
-    throttleMode: false
-  }),
+  // renderer: () => ({
+  //   srcField: 'src',
+  //   altField: 'alt',
+  //   width: 100,
+  //   height: 100,
+  //   throttleMode: false
+  // }),
+
+  width:100,
+  height:100,
+  srcField:'src',
+  altField:'alt',
+  throttleMode:false,
 })
 const images = computed(() => {
   return (props.value as { [key: string]: string }[])?.map(
       (item) => {
         return {
-          src: item[props.renderer.srcField!],
-          alt: item[props.renderer.altField!],
+          src: item[props.srcField!],
+          alt: item[props.altField!],
         };
       }
   ) ?? []
@@ -41,10 +52,10 @@ const isValidate = computed(() => {
   return images.value.length > 0
 })
 const width = computed(() => {
-  return props.renderer.width ?? 50
+  return props.width ?? 50
 })
 const height = computed(() => {
-  return props.renderer.height ?? 50
+  return props.height ?? 50
 })
 
 let api: Viewer;
@@ -83,7 +94,7 @@ const showImages = (index: number) => {
 <template>
   <img
       @click="showImages(0)"
-      v-if="isValidate&& props.renderer.throttleMode"
+      v-if="isValidate&& props.throttleMode"
       :width="width"
       :height="height"
       :src="images[0].src"
