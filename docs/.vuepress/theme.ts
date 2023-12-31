@@ -72,7 +72,7 @@ export default hopeTheme({
 
   encrypt: {
     config: {
-      "/projects/机器人/付款历史": ["123394"],
+      "/projects/机器人": ["123394"]
     },
   },
 

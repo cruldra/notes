@@ -1,0 +1,28 @@
+@startuml
+actor 用户
+participant 浏览器
+participant "next" as Next
+participant "java" as Java
+participant "openai客户端" as OpenAIClient
+
+用户 -> 浏览器: 输入网址
+浏览器 -> Next: 检测是否存在访问令牌
+alt 存在访问令牌
+    Next -> 浏览器: 跳转到 /chat
+    用户 -> 浏览器: 发起聊天请求
+    Next -> Java: 获取api密钥、用户权限等令牌
+    Java --> Next: 返回密钥和权限
+    alt 用户有聊天权限
+        Next -> OpenAIClient: 使用密钥创建客户端
+        OpenAIClient --> 用户: 开启聊天
+        用户 -> Next: 聊天结束
+        Next -> Next: 更新权限
+        Next --> Java: 权限同步
+    else 用户无聊天权限
+        Next -> 用户: 弹出订阅窗口
+    end
+else 不存在访问令牌
+    Next -> 浏览器: 跳转到 /login
+end
+
+@enduml

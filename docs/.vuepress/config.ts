@@ -1,13 +1,13 @@
 import {defineUserConfig, viteBundler} from "vuepress";
 import theme from "./theme.js";
 import UnoCSS from 'unocss/vite'
-// import Components from 'unplugin-vue-components/vite';
-// import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
-// import AutoImport from "unplugin-auto-import/vite";
-import { getDirname, path } from "@vuepress/utils";
-const __dirname = getDirname(import.meta.url);
+import Components from 'unplugin-vue-components/vite';
+import AutoImport from "unplugin-auto-import/vite";
+import {getDirname, path} from "@vuepress/utils";
 
+const __dirname = getDirname(import.meta.url);
 import {searchProPlugin} from "vuepress-plugin-search-pro";
+import {NaiveUiResolver} from "unplugin-vue-components/resolvers";
 // import {cut} from "nodejs-jieba";
 const base = <"/" | `/${string}/`>process.env["BASE"] || "/";
 export default defineUserConfig({
@@ -23,7 +23,7 @@ export default defineUserConfig({
             // },
             ssr: {
                 // SSR 相关配置
-                noExternal: ['vue3-audio-player'],
+                noExternal: ['vue3-audio-player', 'naive-ui'],
             },
             // resolve: {
             //     mainFields: ['module', 'main'],
@@ -33,18 +33,18 @@ export default defineUserConfig({
             //     entries: ['vue3-audio-player'],
             //     force: true
             // },
-            plugins:[UnoCSS(),
-                // AutoImport({
-                //     imports: ['vue'],
-                //     dts: 'src/typings/auto-imports.d.ts',
-                //     vueTemplate: true,
-                // }),
-                // Components({
-                //     dts: 'src/typings/components.d.ts',
-                //     resolvers: [
-                //         NaiveUiResolver(),
-                //     ]
-                // }),
+            plugins: [UnoCSS(),
+                AutoImport({
+                    imports: ['vue'],
+                    dts: 'src/typings/auto-imports.d.ts',
+                    vueTemplate: true,
+                }),
+                Components({
+                    dts: 'src/typings/components.d.ts',
+                    resolvers: [
+                        NaiveUiResolver(),
+                    ]
+                }),
             ],
             // optimizeDeps:{
             //     exclude:['v-viewer']
