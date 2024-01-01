@@ -31,7 +31,9 @@ npm install axios
 
 ## 声明式API
 
-要使用类似`java`中的[`retrofit`](https://github.com/square/retrofit)类似的声明式API,可以使用[`@dongjak-extensions/http-client`](https://www.npmjs.com/package/@dongjak-extensions/http-client)这个库
+要使用类似`java`中的[`retrofit`](https://github.com/square/retrofit)
+类似的声明式API,可以使用[`@dongjak-extensions/http-client`](https://www.npmjs.com/package/@dongjak-extensions/http-client)
+这个库
 
 ### 安装
 
@@ -42,45 +44,48 @@ pnpm add @dongjak-extensions/http-client @dongjak-public-types/commons
 然后根据自己的需求创建一个`http客户端(axios)`实例:
 
 ::::: details axios.ts
+
 ````ts
 import axios from "axios";
-import { JsonResponse } from "@dongjak-public-types/commons";
+import {JsonResponse} from "@dongjak-public-types/commons";
 
 const httpClient = axios.create({
-  baseURL: "http://localhost:8084",
-  timeout: 1000 * 10,
-  responseType: "json",
+    baseURL: "http://localhost:8084",
+    timeout: 1000 * 10,
+    responseType: "json",
 });
 httpClient.interceptors.request.use(
-  (config) => {
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  },
+    (config) => {
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
+    },
 );
 
 httpClient.interceptors.response.use(
-  //@ts-ignore
-  (response): Promise<JsonResponse<any>> => {
-    const jsonResponse = new JsonResponse(
-      response.data.code,
-      response.data.message,
-      response.data.data,
-    );
-    if (jsonResponse.isSuccessful()) return Promise.resolve(jsonResponse);
-    else return Promise.reject(jsonResponse); // 错误继续返回给到具体页面
-  },
-  (error) => {
-    return Promise.reject(error); // 错误继续返回给到具体页面
-  },
+    //@ts-ignore
+    (response): Promise<JsonResponse<any>> => {
+        const jsonResponse = new JsonResponse(
+            response.data.code,
+            response.data.message,
+            response.data.data,
+        );
+        if (jsonResponse.isSuccessful()) return Promise.resolve(jsonResponse);
+        else return Promise.reject(jsonResponse); // 错误继续返回给到具体页面
+    },
+    (error) => {
+        return Promise.reject(error); // 错误继续返回给到具体页面
+    },
 );
 export default httpClient;
 
 ````
+
 :::::
 
 ### 配置
+
 接下来声明`API`接口:
 
 ```ts
@@ -91,6 +96,7 @@ import {
     Query,
 } from "@dongjak-extensions/http-client";
 import httpClient from "@/utils/axios";
+
 class AuthenticationApi extends DefaultApiImpl {
     @Get("/authentication/sendVerificationCode")
     sendCode(
@@ -99,6 +105,7 @@ class AuthenticationApi extends DefaultApiImpl {
         return Promise.resolve() as any;
     }
 }
+
 export const authenticationApi = createApi(AuthenticationApi, httpClient);
 ```
 
@@ -107,11 +114,10 @@ export const authenticationApi = createApi(AuthenticationApi, httpClient);
 ```ts
 authenticationApi.sendCode(data.phoneNumber).then((res) => {
     if (res.isSuccessful()) {
-      setTargetDate(Date.now() + 60_000);
+        setTargetDate(Date.now() + 60_000);
     }
-  });
+});
 ```
-
 
 ### 示例一:带有`查询参数(@Query)`的简单的`Get`请求
 
@@ -147,7 +153,7 @@ class AuthenticationApi extends DefaultApiImpl {
 ### 示例二:带有`路径参数(@Path)`和`json body(@RequestBody)`的`Post`请求
 
 `Spring Web MVC`的控制器声明如下:
-    
+
 ```kotlin
 @RestController
 @RequestMapping("/authentication")
@@ -178,4 +184,41 @@ class AuthenticationApi extends DefaultApiImpl {
         return Promise.resolve() as any;
     }
 }
+```
+
+## 在`Service Worker`中使用
+
+在使用`axios`发起网络请求时,它会自动根据当前所处的环境选择合适的`适配器(adapter)`来进行请求
+
+```js
+const instance = axios.create({
+    adapter: 'http',
+    //....
+});
+```
+
+默认情况下当处于`浏览器`环境时,`axios`
+使用[`XMLHttpRequest`](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)
+进行请求,在`nodejs`环境中,`axios`使用[`http`](https://nodejs.org/api/http.html)
+模块进行请求
+
+但是在`Service Worker`中,`XMLHttpRequest`和`http`
+模块都不可用,这时候就需要用到[`Fetch API`](./Fetch%20API.md)
+
+[@vespaiach/axios-fetch-adapter](https://www.npmjs.com/package/@vespaiach/axios-fetch-adapter)提供了一个`Fetch API`
+版的`axios`适配器,如果想要保持一致的风格可以用这个适配器实现在`Service Worker`中使用`axios`
+
+1. 安装
+```bash
+pnpm add @vespaiach/axios-fetch-adapter
+```
+
+2. 配置
+
+```js
+import fetchAdapter from '@vespaiach/axios-fetch-adapter';
+const instance = axios.create({
+  adapter: fetchAdapter
+  //... 其它配置
+});
 ```
