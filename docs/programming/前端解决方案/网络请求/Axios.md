@@ -205,20 +205,68 @@ const instance = axios.create({
 但是在`Service Worker`中,`XMLHttpRequest`和`http`
 模块都不可用,这时候就需要用到[`Fetch API`](./Fetch%20API.md)
 
-[@vespaiach/axios-fetch-adapter](https://www.npmjs.com/package/@vespaiach/axios-fetch-adapter)提供了一个`Fetch API`
-版的`axios`适配器,如果想要保持一致的风格可以用这个适配器实现在`Service Worker`中使用`axios`
+可以用`fetch api`自定义一个`axios`适配器
 
-1. 安装
-```bash
-pnpm add @vespaiach/axios-fetch-adapter
-```
+```ts
+const fetchAdapter = (config: InternalAxiosRequestConfig) => {
+    // 将 Axios 配置转换为 Fetch API 配置
+    const fetchConfig = {
+        method: config.method?.toUpperCase(),
+        headers: config.headers,
+        body: config.data,
+        mode: 'cors', // 根据需要设置模式
+        credentials: config.withCredentials ? 'include' : 'omit', // 处理跨域请求的凭据
+    } as RequestInit;
 
-2. 配置
+    // 处理请求超时
+    const timeoutPromise = new Promise(function (resolve, reject) {
+        if (config.timeout) {
+            setTimeout(() => {
+                reject(new Error('Request timeout'));
+            }, config.timeout);
+        }
+    });
 
-```js
-import fetchAdapter from '@vespaiach/axios-fetch-adapter';
+    // 发送请求并返回一个 Promise
+
+    return new Promise<AxiosResponse<any>>((resolve, reject) => {
+        Promise.race([
+            fetch(`${config.baseURL}${config.url}`, fetchConfig)
+                .then(response => {
+                    // 检查响应状态
+                    if (!response.ok) {
+                        throw new Error(response.statusText);
+                    }
+                    // 根据 Axios 的配置解析响应数据
+                    const responseDataPromise = config.responseType === 'json'
+                        ? response.json()
+                        : response.text();
+                    responseDataPromise.then(data => {
+
+                        resolve({
+                            data,
+                            status: response.status,
+                            statusText: response.statusText,
+                            // headers: response.headers as AxiosResponseHeaders,
+                            config,
+                            request: response,
+                        } as AxiosResponse)
+                    });
+                }),
+            timeoutPromise
+        ])
+            .catch(error => {
+                // 包装错误信息
+                reject({
+                    message: error.message,
+                    config,
+                    request: error.request,
+                })
+            });
+    })
+}
 const instance = axios.create({
-  adapter: fetchAdapter
-  //... 其它配置
+    adapter: fetchAdapter
+    //... 其它配置
 });
 ```
