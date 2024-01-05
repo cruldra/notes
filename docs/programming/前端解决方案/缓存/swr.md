@@ -19,3 +19,8 @@ order: 1
 [swr](https://www.npmjs.com/package/swr)
 主要关注的是数据的状态管理,包括缓存、数据同步、重新获取、加载状态、错误处理这些.通常和`Http`客户端库(例如`axios`)
 一起使用,用于处理底层的`HTTP`请求.
+
+
+## 遇到的问题
+
+* [频繁发起网络请求](https://poe.com/s/Ky4OGLEsPDvYJeBJ4lJp)

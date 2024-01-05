@@ -1,5 +1,5 @@
 ---
-title: @vercel_analytics
+title: vercel_analytics
 comment: false
 editLink: false
 prev: false
