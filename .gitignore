@@ -3,4 +3,3 @@
 **/.vuepress/.temp/**
 .idea
 dist
-pnpm-lock.yaml
