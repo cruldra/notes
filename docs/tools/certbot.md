@@ -31,3 +31,13 @@ crontab -e
 0 5 * * * /usr/bin/certbot renew --quiet
 
 ```
+
+## 报错
+
+1. ![](https://cdn.jsdelivr.net/gh/hhypygy/images@master/20240109/image.24wmlfwdc9og.png)
+
+解决办法``pip install --upgrade kfp``
+
+## 参考
+
+* [使用Certbot为Nginx自动生成SSL证书并自动续期的指南 - ByteZoneX-探索Web开发资源和人工智能教程的代码社区](https://www.bytezonex.com/archives/70.html)

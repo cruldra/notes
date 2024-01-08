@@ -32,11 +32,11 @@ const props = withDefaults(defineProps<Props>(), {
   //   throttleMode: false
   // }),
 
-  width:100,
-  height:100,
-  srcField:'src',
-  altField:'alt',
-  throttleMode:false,
+  width: 100,
+  height: 100,
+  srcField: 'src',
+  altField: 'alt',
+  throttleMode: false,
 })
 const images = computed(() => {
   return (props.value as { [key: string]: string }[])?.map(
@@ -60,7 +60,7 @@ const height = computed(() => {
 
 let api: Viewer;
 const showImages = (index: number) => {
-
+  return
   if (!api)
     api = viewerApi({
       images: images.value,

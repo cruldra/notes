@@ -86,7 +86,7 @@ export default hopeTheme({
         components: ['VidStack']
     },
     blog: true,
-    photoSwipe: false,
+    photoSwipe: true,
     // install @waline/client before enabling it
     // WARNING: This is a test server for demo only.
     // You should create and use your own comment service in production.
