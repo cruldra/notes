@@ -53,6 +53,51 @@ fetch(OPENAI_URLS.chat, {
 })
 ```
 
+## 多部分(`multipart`)表单请求
+
+```js
+// 假设你有一个要以JSON格式发送的对象
+const options = {
+    mimeType: {
+        extension: "webm",
+        mimeType: "audio/webm"
+    },
+    model: "whisper-1"
+};
+
+// 将对象转换为JSON字符串
+const optionsJsonString = JSON.stringify(options);
+
+// 创建一个Blob对象并设置其内容类型为application/json
+const optionsBlob = new Blob([optionsJsonString], { type: "application/json" });
+
+// 创建一个新的FormData对象
+const formData = new FormData();
+
+// 添加Blob对象作为表单数据的一部分，它将包含正确的Content-Type
+formData.append("options", optionsBlob);
+
+// 添加文件
+const fileField = document.querySelector('input[type="file"]');
+formData.append("speech", fileField.files[0]);
+
+// 现在可以发送formData对象
+fetch('http://localhost:8084/api/speech', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer your-token-here',
+  },
+  body: formData
+})
+.then(response => response.json())
+.then(result => {
+  console.log('Success:', result);
+})
+.catch(error => {
+  console.error('Error:', error);
+});
+```
+
 ## API
 
 | 参数      | 类型                           | 描述                        | 是否必须 |
