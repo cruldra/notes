@@ -65,8 +65,7 @@ chat.cruldra.com {
 最后再进入容器命令行,重启`caddy`服务即可:
 
 ```bash
-docker exec -it caddy_v2ray bash
-caddy reload
+docker exec -it caddy_v2ray sh -c 'cd /etc/caddy && caddy reload'
 ```
 
 ## 手动安装
