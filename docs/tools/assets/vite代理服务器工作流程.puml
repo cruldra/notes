@@ -1,0 +1,10 @@
+@startuml
+participant Axios as "Axios 客户端"
+participant ViteProxy as "Vite 代理服务"
+participant Backend as "后端服务"
+autonumber
+Axios -> ViteProxy: 请求 /api/user/list
+ViteProxy -> Backend: 重写请求\n转发到后端地址
+Backend -> ViteProxy: 响应数据
+ViteProxy -> Axios: 返回响应给客户端
+@enduml
