@@ -20,15 +20,15 @@
     "@vue/repl": "^3.0.0",
     "@vuepress/client": "^2.0.0-rc.0",
     "@vuepress/utils": "2.0.0-rc.0",
-    "mermaid": "^10.6.1",
+    "mermaid": "^10.7.0",
     "naive-ui": "^2.36.0",
     "unocss": "^0.57.3",
     "unplugin-auto-import": "^0.17.2",
     "unplugin-vue-components": "^0.26.0",
     "vue": "^3.3.9",
     "vuepress": "^2.0.0-rc.0",
-    "vuepress-plugin-search-pro": "^2.0.0-rc.0",
-    "vuepress-theme-hope": "^2.0.0-rc.4"
+    "vuepress-plugin-search-pro": "2.0.0-rc.5",
+    "vuepress-theme-hope": "2.0.0-rc.5"
   },
   "dependencies": {
     "@dongjak-public-types/table": "^3.5.0",

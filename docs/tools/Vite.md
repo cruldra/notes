@@ -191,3 +191,37 @@ export default defineConfig(configEnv => {
 3. 下面这张图展示了使用`axios`作为`http客户端`通过访问`vite dev`时创建的代理服务器来实现`跨域`访问`spring boot`服务的过程
 
 ![vite代理服务器工作流程](https://cdn.jsdelivr.net/gh/hhypygy/images@master/20240116/vite代理服务器工作流程.6oml1hxy2ew0.svg)
+
+## 插件
+### `Unocss`集成
+
+1. 安装依赖
+
+```bash
+pnpm i -D unocss
+```
+
+2. 在`vite.config.ts`中配置`unocss`插件
+
+::::: details vite.config.ts
+```ts
+import UnoCSS from 'unocss/vite'
+export default defineConfig(configEnv => {
+    return {
+        plugins: [
+            UnoCSS(),
+        ],
+    }
+});
+```
+:::::
+
+3. 在项目入口处引入`unocss`的`css`文件
+
+```ts
+import 'uno.css'
+```
+
+:::tip
+项目入口视具体项目类型或结构而定,比如`Vue`通常在`main.ts`中引入,`React`通常在`index.tsx`中引入
+:::
