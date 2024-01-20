@@ -4,6 +4,31 @@ export default navbar([
     "/",
     // "/projects",
     {
+        text: "JVM生态",
+        icon: "lightbulb",
+        prefix: "/JVM",
+        link: '/JVM/',
+        /*children: [
+            {
+                text: "Mysql",
+                link: "/mysql/安装/",
+                // children: [ ],
+            }, {
+                text: "Docker",
+                link: "/docker/安装/",
+                // children: [ ],
+            },{
+                text: "Github",
+                link: "/github/",
+                // children: [ ],
+            },{
+                text: "Ubuntu",
+                link: "/ubuntu/",
+                // children: [ ],
+            },
+        ],*/
+    },
+    {
         text: "编程",
         icon: "lightbulb",
         prefix: "/programming",

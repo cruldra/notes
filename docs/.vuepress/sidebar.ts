@@ -1,7 +1,18 @@
 import { sidebar } from "vuepress-theme-hope";
 
 export default sidebar({
+  "/JVM/": [
+    {
+      text: "JVM生态",
+      icon: "laptop-code",
+      collapsible:true,
+      // children: [
+      //   "ershouche/",
+      // ],
+      children: "structure",
+    },
 
+  ],
   "/programming/": [
     {
       text: "编程",
