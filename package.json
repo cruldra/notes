@@ -1,6 +1,8 @@
 {
-  "name": "Cruldra's Notes",
-  "description": "Cruldra's Notes",
+  "name": "note",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "刘邺的个人笔记",
   "repository": {
     "type": "git",
     "url": "https://github.com/cruldra/notes.git"
@@ -9,25 +11,25 @@
   "private": true,
   "packageManager": "pnpm@8.3.1",
   "scripts": {
-    "build": "pnpm run docs:build",
-    "dev": "pnpm run docs:dev",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress-vite build src",
+    "docs:clean-dev": "vuepress-vite dev src --clean-cache",
+    "docs:dev": "vuepress-vite dev src",
+    "docs:update-package": "pnpm dlx vp-update"
   },
   "devDependencies": {
+    "vuepress": "^2.0.0-rc.2",
+    "vuepress-theme-hope": "2.0.0-rc.16",
+    "@vuepress/bundler-vite": "^2.0.0-rc.2",
+    "vuepress-plugin-search-pro": "^2.0.0-rc.16",
     "@types/markdown-it": "^13.0.5",
     "@types/node": "^20.8.10",
     "@vue/repl": "^3.0.0",
-    "@vuepress/bundler-vite": "2.0.0-rc.2",
     "mermaid": "^10.7.0",
     "naive-ui": "^2.36.0",
     "unocss": "^0.57.3",
     "unplugin-auto-import": "^0.17.2",
     "unplugin-vue-components": "^0.26.0",
-    "vue": "^3.3.9",
-    "vuepress": "^2.0.0-rc.2",
-    "vuepress-plugin-search-pro": "^2.0.0-rc.16",
-    "vuepress-theme-hope": "^2.0.0-rc.16"
+    "vue": "^3.4.15"
   },
   "dependencies": {
     "@dongjak-public-types/table": "^3.5.0",
