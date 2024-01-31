@@ -101,7 +101,7 @@ import Child from './child.vue'
 
 
 ## 使用导入的接口
-``vue3.3``以前不能在``defineProps``中使用导入的接口和[交叉类型](../typescript/交叉类型.md#简介)
+``vue3.3``以前不能在``defineProps``中使用导入的接口和[交叉类型](../Typescript/交叉类型.md#简介)
 
 ```vue
 <script setup lang="ts">

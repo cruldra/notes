@@ -1,11 +1,9 @@
-import {defineUserConfig, viteBundler} from "vuepress";
+import {defineUserConfig} from "vuepress";
+import {viteBundler} from '@vuepress/bundler-vite'
 import theme from "./theme.js";
 import UnoCSS from 'unocss/vite'
 import Components from 'unplugin-vue-components/vite';
 import AutoImport from "unplugin-auto-import/vite";
-import {getDirname, path} from "@vuepress/utils";
-
-const __dirname = getDirname(import.meta.url);
 import {searchProPlugin} from "vuepress-plugin-search-pro";
 import {NaiveUiResolver} from "unplugin-vue-components/resolvers";
 // import {cut} from "nodejs-jieba";
