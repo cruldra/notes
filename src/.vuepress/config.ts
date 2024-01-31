@@ -44,9 +44,9 @@ export default defineUserConfig({
                     ]
                 }),
             ],
-            // optimizeDeps:{
-            //     exclude:['v-viewer']
-            // }
+            optimizeDeps: {
+                include: ['mermaid','sandpack-vue3' ]
+            }
         },
         vuePluginOptions: {},
     }),

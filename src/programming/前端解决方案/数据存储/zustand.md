@@ -30,8 +30,10 @@ pnpm add zustand
 ## 创建存储库
 
 ### 使用`create`
+::: sandpack#react-ts React 示例 [  theme=dark]
 
-```tsx
+@file /store.ts
+```ts
 import create from "zustand";
 
 //定义状态的类型
@@ -42,13 +44,44 @@ type State = {
 };
 
 //创建存储
-const useStore = create<State>((set) => ({
+export const useStore = create<State>((set) => ({
     count: 0,
     increment: () => set((state) => ({count: state.count + 1})),
     decrement: () => set((state) => ({count: state.count - 1})),
 }));
-
 ```
+
+@file /App.tsx
+
+```tsx
+import {useStore} from './store';
+
+export default () => {
+    const [count, increment, decrement] = useStore((s) => [
+        s.count,
+        s.increment,
+        s.decrement,
+    ]);
+    return <div>
+        <h1>{count}</h1>
+        <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+    </div>;
+}
+```
+
+@setup
+
+```js
+{
+  dependencies: {
+    "zustand": "^4.4",
+  }
+}
+```
+:::
+
+
 
 ### 使用`createWithEqualityFn`
 

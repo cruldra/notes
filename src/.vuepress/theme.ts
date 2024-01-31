@@ -202,7 +202,7 @@ export default hopeTheme({
             // vuePlayground: true,
 
             // install sandpack-vue3 before enabling it
-            // sandpack: true,
+            sandpack: true,
         },
 
         // uncomment these if you want a PWA
