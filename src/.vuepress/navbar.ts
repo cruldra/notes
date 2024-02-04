@@ -73,16 +73,13 @@ export default navbar([
     // "/demo/",
     {
         text: "项目",
-        icon: "lightbulb",
         prefix: "/projects",
-        link: '/projects/',
-        /* children: [
+         children: [
            {
-             text: "安徽臻信通",
-             icon: "lightbulb",
-               link: '/projects/安徽臻信通/',
+             text: "机器人",
+               link: '/projects/机器人/待办事项/其它',
            }
-         ],*/
+         ]
     },
     /* {
          text: "术语",
