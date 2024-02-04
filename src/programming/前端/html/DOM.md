@@ -9,7 +9,8 @@ order: 1
 
 ## 简介
 
-`DOM`是`Document Object Model`的缩写,即文档对象模型,它是`HTML`和`XML`文档的编程接口.
+[DOM](https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model)是`Document Object Model`
+的缩写,即文档对象模型,它是`HTML`和`XML`文档的编程接口.
 
 ## 事件(Event)
 
@@ -88,10 +89,11 @@ order: 1
 <body>
 
 <div id="draggable" draggable="true">拖动我</div>
- 
+
 </body>
 </html>
 ```
+
 ```js
 document.addEventListener('DOMContentLoaded', (event) => {
     const draggable = document.getElementById('draggable');
@@ -113,6 +115,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 ```
+
 :::
 
 ### 放置
@@ -120,14 +123,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
 :::normal-demo
 
 ```html
+
 <div id="drop-zone" style="width: 200px; height: 200px; border: 1px solid black;">
     拖动一些内容到这里
 </div>
 ```
+
 ```js
 document.addEventListener('DOMContentLoaded', (event) => {
     const dropZone = document.getElementById('drop-zone');
-    
+
     // 当拖动的元素进入放置目标时
     dropZone.addEventListener('dragenter', (event) => {
         // 通常需要阻止默认行为
@@ -161,4 +166,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 ```
+
 :::

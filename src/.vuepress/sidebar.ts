@@ -1,6 +1,15 @@
 import { sidebar } from "vuepress-theme-hope";
 
 export default sidebar({
+  "/前端/状态管理/": [
+    {
+      text: "状态管理",
+      icon: "laptop-code",
+      collapsible:true,
+      children: "structure",
+    },
+
+  ],
   "/JVM/": [
     {
       text: "JVM生态",

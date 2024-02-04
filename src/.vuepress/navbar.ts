@@ -1,11 +1,8 @@
 import {navbar} from "vuepress-theme-hope";
 
 export default navbar([
-    "/",
-    // "/projects",
     {
-        text: "JVM生态",
-        icon: "lightbulb",
+        text: "Java",
         prefix: "/JVM",
         link: '/JVM/',
         /*children: [
@@ -54,6 +51,20 @@ export default navbar([
         ],*/
     },
     {
+        text: "前端",
+        prefix: "前端",
+        children: [
+            {
+                text: "状态管理",
+                prefix: "状态管理",
+                children: [{
+                    text:"Zustand",
+                    link:'Zustand/简介'
+                }]
+            }
+        ],
+    },
+    {
         text: "工具",
         prefix: "/tools",
         link: '/tools/'
@@ -61,23 +72,10 @@ export default navbar([
 
     // "/demo/",
     {
-      text: "项目",
-      icon: "lightbulb",
-      prefix: "/projects",
-        link: '/projects/',
-     /* children: [
-        {
-          text: "安徽臻信通",
-          icon: "lightbulb",
-            link: '/projects/安徽臻信通/',
-        }
-      ],*/
-    },
-    {
-        text: "术语",
+        text: "项目",
         icon: "lightbulb",
-        prefix: "/terminology",
-        link: '/terminology/',
+        prefix: "/projects",
+        link: '/projects/',
         /* children: [
            {
              text: "安徽臻信通",
@@ -86,6 +84,19 @@ export default navbar([
            }
          ],*/
     },
+    /* {
+         text: "术语",
+         icon: "lightbulb",
+         prefix: "/terminology",
+         link: '/terminology/',
+         /!* children: [
+            {
+              text: "安徽臻信通",
+              icon: "lightbulb",
+                link: '/projects/安徽臻信通/',
+            }
+          ],*!/
+     },*/
     /* {
        text: "V2 文档",
        icon: "book",
