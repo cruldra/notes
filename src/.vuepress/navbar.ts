@@ -25,12 +25,12 @@ export default navbar([
             },
         ],*/
     },
-    {
+    /*{
         text: "编程",
         icon: "lightbulb",
         prefix: "/programming",
         link: '/programming/',
-        /*children: [
+        /!*children: [
             {
                 text: "Mysql",
                 link: "/mysql/安装/",
@@ -48,15 +48,31 @@ export default navbar([
                 link: "/ubuntu/",
                 // children: [ ],
             },
-        ],*/
-    },
+        ],*!/
+    },*/
     {
         text: "前端",
-        prefix: "前端",
+        prefix: "/programming/frontend",
         children: [
             {
+                text: "编程语言",
+                children: [{
+                    text:"Typescript",
+                    link:'Typescript/简介'
+                }]
+            },
+            {
+                text: "用户界面",
+                children:[
+                    {
+                        text: "React",
+                        prefix: "React",
+                        link:'React/简介'
+                    },
+                ]
+            },
+            {
                 text: "状态管理",
-                prefix: "状态管理",
                 children: [{
                     text:"Zustand",
                     link:'Zustand/简介'
