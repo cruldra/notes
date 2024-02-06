@@ -15,6 +15,13 @@ export default sidebar({
             children: "structure",
         },
     ],
+    "/programming/frontend/Javascript/": [
+        {
+            text: "Javascript",
+            collapsible: true,
+            children: "structure",
+        },
+    ],
     "/programming/frontend/Zustand/": [
         {
             text: "Zustand",

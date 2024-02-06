@@ -59,6 +59,9 @@ export default navbar([
                 children: [{
                     text:"Typescript",
                     link:'Typescript/简介'
+                },{
+                    text:"Javascript",
+                    link:'Javascript/简介'
                 }]
             },
             {
