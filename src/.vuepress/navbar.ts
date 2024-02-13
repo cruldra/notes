@@ -96,7 +96,7 @@ export default navbar([
          children: [
            {
              text: "机器人",
-               link: '/projects/机器人/待办事项/其它',
+               link: 'ailoveworld/待办事项/其它',
            }
          ]
     },

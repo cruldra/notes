@@ -29,6 +29,13 @@ export default sidebar({
             children: "structure",
         },
     ],
+    "/projects/ailoveworld/": [
+        {
+            text: "机器人",
+            collapsible: true,
+            children: "structure",
+        },
+    ],
     "/JVM/": [
         {
             text: "JVM生态",
