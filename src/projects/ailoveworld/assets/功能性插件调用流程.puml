@@ -1,0 +1,17 @@
+@startuml
+
+actor "管理人员" as Admin
+participant "OpenAI 助手" as Assistant
+participant "客户端" as Client
+participant "网关" as Gateway
+
+Admin -> Assistant: 配置可用插件
+Client -> Assistant: 发送消息
+Assistant -> Client: 分析消息\n如果需要则生成调用参数
+Client -> Gateway: 调用对应插件\n带上调用参数
+Gateway -> Client: 返回插件调用结果
+Client -> Assistant: 提交插件结果进行分析
+Assistant -> Client: 返回分析后的消息
+Client -> Client: 渲染消息\n对话完成
+
+@enduml
