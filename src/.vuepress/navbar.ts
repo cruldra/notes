@@ -80,6 +80,20 @@ export default navbar([
                     text:"Zustand",
                     link:'Zustand/简介'
                 }]
+            },
+            {
+                text: "构建工具",
+                children: [{
+                    text:"Vite",
+                    link:'Vite/Vite'
+                }]
+            },
+            {
+                text: "路由系统",
+                children: [{
+                    text:"React Router Dom",
+                    link:'Routing/React Router Dom/简介'
+                }]
             }
         ],
     },

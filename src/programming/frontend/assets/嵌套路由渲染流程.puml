@@ -1,0 +1,34 @@
+@startuml
+actor User
+participant "Route: /" as RouteRoot
+participant "Component: Layout" as Layout
+participant "Outlet" as Outlet
+participant "Route: dashboard" as RouteDashboard
+participant "Component: Dashboard" as Dashboard
+
+User -> RouteRoot: Enter "/dashboard"
+activate RouteRoot
+
+RouteRoot -> Layout: Render
+activate Layout
+
+Layout -> Outlet: Prepare for nested content
+activate Outlet
+
+Outlet -> RouteDashboard: Match "/dashboard"
+activate RouteDashboard
+
+RouteDashboard -> Dashboard: Render
+activate Dashboard
+
+Dashboard --> Outlet: Displayed in <Outlet />
+deactivate Dashboard
+
+Outlet --> Layout: Nested content rendered
+deactivate Outlet
+
+Layout --> RouteRoot: Complete render with nested content
+deactivate Layout
+
+deactivate RouteRoot
+@enduml

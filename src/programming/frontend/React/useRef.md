@@ -68,4 +68,4 @@ function TimerComponent() {
 
 1. 响应式: `React`的`useRef`生成的对象不是响应式的,即`.current`属性的变化不会引起组件的重新渲染,而`vue`的`ref`生成的对象是响应式的,即`ref`对象的变化会引起组件的重新渲染
 2. 用途: `React`的`useRef`主要用于获取`DOM`元素的引用,而`vue`的`ref`除了可以获取组件的引用外用途更广泛,比如状态存储
-3. API设计: `React`的`useRef`只能在函数组件中使用,而`vue`的`ref`在[选项式API](../vue/API风格.md#选项式options-api)中是作为特殊属性用于模板,而在[组合式API](../vue/API风格.md#组合式composition-api)中则是一个函数,可以在`Vue`的`setup`函数中使用
+3. API设计: `React`的`useRef`只能在函数组件中使用,而`vue`的`ref`在[选项式API](../Vue/API风格.md#选项式options-api)中是作为特殊属性用于模板,而在[组合式API](../Vue/API风格.md#组合式composition-api)中则是一个函数,可以在`Vue`的`setup`函数中使用

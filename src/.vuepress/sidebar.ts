@@ -29,6 +29,20 @@ export default sidebar({
             children: "structure",
         },
     ],
+    "/programming/frontend/Vite/": [
+        {
+            text: "Vite",
+            collapsible: true,
+            children: "structure",
+        },
+    ],
+    "/programming/frontend/Routing/": [
+        {
+            text: "路由系统",
+            collapsible: true,
+            children: "structure",
+        },
+    ],
     "/projects/ailoveworld/": [
         {
             text: "机器人",
