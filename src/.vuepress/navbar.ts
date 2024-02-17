@@ -5,54 +5,10 @@ export default navbar([
         text: "Java",
         prefix: "/JVM",
         link: '/JVM/',
-        /*children: [
-            {
-                text: "Mysql",
-                link: "/mysql/安装/",
-                // children: [ ],
-            }, {
-                text: "Docker",
-                link: "/docker/安装/",
-                // children: [ ],
-            },{
-                text: "Github",
-                link: "/github/",
-                // children: [ ],
-            },{
-                text: "Ubuntu",
-                link: "/ubuntu/",
-                // children: [ ],
-            },
-        ],*/
     },
-    /*{
-        text: "编程",
-        icon: "lightbulb",
-        prefix: "/programming",
-        link: '/programming/',
-        /!*children: [
-            {
-                text: "Mysql",
-                link: "/mysql/安装/",
-                // children: [ ],
-            }, {
-                text: "Docker",
-                link: "/docker/安装/",
-                // children: [ ],
-            },{
-                text: "Github",
-                link: "/github/",
-                // children: [ ],
-            },{
-                text: "Ubuntu",
-                link: "/ubuntu/",
-                // children: [ ],
-            },
-        ],*!/
-    },*/
     {
         text: "前端",
-        prefix: "/programming/frontend",
+        prefix: "/Programming/Frontend",
         children: [
             {
                 text: "编程语言",
@@ -98,15 +54,29 @@ export default navbar([
         ],
     },
     {
-        text: "工具",
-        prefix: "/tools",
-        link: '/tools/'
-    },
+        text: "解决方案",
+        prefix: '/Solutions/',
+        children:[
 
-    // "/demo/",
+            {
+                text: "支付",
+                children: [{
+                    text:"支付宝",
+                    link:'Payment/支付宝/简介'
+                },{
+                    text:"微信",
+                    link:'Payment/微信/开通流程'
+                }]
+            },
+        ]
+    },
+    {
+        text: "工具",
+        link: '/Tools/'
+    },
     {
         text: "项目",
-        prefix: "/projects",
+        prefix: "/Projects",
          children: [
            {
              text: "机器人",
@@ -114,22 +84,4 @@ export default navbar([
            }
          ]
     },
-    /* {
-         text: "术语",
-         icon: "lightbulb",
-         prefix: "/terminology",
-         link: '/terminology/',
-         /!* children: [
-            {
-              text: "安徽臻信通",
-              icon: "lightbulb",
-                link: '/projects/安徽臻信通/',
-            }
-          ],*!/
-     },*/
-    /* {
-       text: "V2 文档",
-       icon: "book",
-       link: "https://theme-hope.vuejs.press/zh/",
-     },*/
 ]);

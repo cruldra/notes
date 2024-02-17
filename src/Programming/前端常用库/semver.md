@@ -11,7 +11,7 @@ order: 1
 
 [semver](https://www.npmjs.com/package/semver)
 用于在`Node.js`和`浏览器`
-环境中管理软件版本号,它遵循[语义化版本控制规范](../../terminology/语义化版本控制(Semantic%20Versioning).md)
+环境中管理软件版本号,它遵循[语义化版本控制规范](../../Terminology/语义化版本控制(Semantic%20Versioning).md)
 
 ## 示例
 

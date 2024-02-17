@@ -72,7 +72,7 @@ baseState === newState //true
 [immer](https://www.npmjs.com/package/immer)提供了一种简单的方法来处理不可变数据更新,你可以用一种看似`可变`
 的方式编写代码,immer在内部会处理这些更新,确保不会修改原始状态,而是创建一个新的状态副本来反映这些更新.
 
-这样做的好处是代码更易读、易写,同时依然保持了数据的[不可变性(Immutability)](../../../terminology/不可变性(Immutability).md).
+这样做的好处是代码更易读、易写,同时依然保持了数据的[不可变性(Immutability)](../../../Terminology/不可变性(Immutability).md).
 
 现在我们使用`immer`来重写上面的例子:
 

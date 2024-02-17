@@ -1,51 +1,58 @@
 import {sidebar} from "vuepress-theme-hope";
 
 export default sidebar({
-    "/programming/frontend/React/": [
+    "/Programming/Frontend/React/": [
         {
             text: "React",
             collapsible: true,
             children: "structure",
         },
     ],
-    "/programming/frontend/Typescript/": [
+    "/Programming/Frontend/Typescript/": [
         {
             text: "Typescript",
             collapsible: true,
             children: "structure",
         },
     ],
-    "/programming/frontend/Javascript/": [
+    "/Programming/Frontend/Javascript/": [
         {
             text: "Javascript",
             collapsible: true,
             children: "structure",
         },
     ],
-    "/programming/frontend/Zustand/": [
+    "/Programming/Frontend/Zustand/": [
         {
             text: "Zustand",
             collapsible: true,
             children: "structure",
         },
     ],
-    "/programming/frontend/Vite/": [
+    "/Programming/Frontend/Vite/": [
         {
             text: "Vite",
             collapsible: true,
             children: "structure",
         },
     ],
-    "/programming/frontend/Routing/": [
+    "/Programming/Frontend/Routing/": [
         {
             text: "路由系统",
             collapsible: true,
             children: "structure",
         },
     ],
-    "/projects/ailoveworld/": [
+    "/Projects/ailoveworld/": [
         {
             text: "机器人",
+            collapsible: true,
+            children: "structure",
+        },
+    ],
+    "/Solutions/Payment/": [
+        {
+            text: "支付解决方案",
             collapsible: true,
             children: "structure",
         },
@@ -63,7 +70,7 @@ export default sidebar({
 
     ],
 
-    "/tools/": [
+    "/Tools/": [
         {
             text: "工具",
             icon: "laptop-code",
@@ -75,7 +82,7 @@ export default sidebar({
         },
 
     ],
-    "/projects/": [
+    "/Projects/": [
         {
             text: "项目",
             icon: "laptop-code",

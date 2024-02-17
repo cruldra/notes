@@ -179,7 +179,13 @@ export default defineConfig(configEnv => {
                 [viteEnv.VITE_AXIOS_BASE_URL]: {
                     target: viteEnv.VITE_AXIOS_PROXY_URL,
                     changeOrigin: true,
-                    rewrite: (path) => path.replace(viteEnv.VITE_AXIOS_BASE_URL, '')
+                    rewrite: (path) => path.replace(viteEnv.VITE_AXIOS_BASE_URL, ''),
+                    configure: (proxy, options) => {
+                        // 监听代理请求事件并打印
+                        proxy.on('proxyReq', (proxyReq, req, res, opts) => {
+
+                        });
+                    },
                 },
             } : undefined
         }
