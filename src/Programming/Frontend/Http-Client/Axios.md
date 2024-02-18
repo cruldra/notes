@@ -4,12 +4,11 @@ comment: false
 editLink: false
 prev: false
 next: false
-order: 1
 ---
 
 ## 简介
 
-`Axios`是一个基于`Promise`的`HTTP`客户端,可以在`浏览器`和`node.js`中使用.
+[axios](https://www.npmjs.com/package/axios)是一个基于`Promise`的`HTTP`客户端,可以在`浏览器`和`node.js`中使用.
 
 ## 安装
 
@@ -28,6 +27,119 @@ npm install axios
 ```
 
 :::
+
+## 读取流式响应
+
+:::tip
+官方目前仍不支持直接读取流式响应,但是可以通过自定义适配器的方式来实现.相关讨论可以参考:
+
+1. [axios issues 479](https://github.com/axios/axios/issues/479)
+2. [axios issues 1474](https://github.com/axios/axios/issues/1474#issuecomment-578406887)
+:::
+
+<div class="iframely-embed"><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://www.npmjs.com/package/@dongjak-extensions/http-client" data-iframely-url="//cdn.iframe.ly/api/iframe?card=small&url=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2F%40dongjak-extensions%2Fhttp-client%3FactiveTab%3Dreadme&key=5045bb5ca67efdd8988cff4f00405219"></a></div></div>
+<component  :is="'script'" async src="//cdn.iframe.ly/embed.js" charset="utf-8"></component>
+
+上面这个库中提供了一个`fetchAdapter`,允许你在`axios`中使用`fetch`来完成实际请求的发送
+
+```ts
+import {fetchAdapter} from "@dongjak-extensions/http-client";
+```
+
+现在来看下面这个例子,它使用`axios`和`fetchAdapter`来读取流式响应:
+
+::: sandpack#react-ts 使用Axios读取流式响应 [  theme=dark]
+
+@file /App.tsx
+
+```tsx 
+import {useCallback, memo, useState} from "react";
+import axios from "axios";
+import {fetchAdapter, MixResponse} from "@dongjak-extensions/http-client";
+export default () => {
+    const [dataByAxios, setDataByAxios] = useState('data: ')
+    const byAxios = () => {
+        axios({
+            method: 'get',
+            url: 'http://localhost:3000/api/stream4',
+            responseType: 'stream',
+            adapter:fetchAdapter,
+        })
+            .then(response => {
+                const  res =   response  as any as MixResponse
+                const reader = res.body ?.getReader();
+                // 读取流中的数据
+                let decoder = new TextDecoder(); // 用于将流中的字节解码成字符串
+                reader?.read().then(function processText({done, value}): any {
+                    if (done) {
+                        // 流已经结束
+                        console.log('Stream complete');
+                        return;
+                    }
+
+                    // 将 Uint8Array 缓冲区转换为文本
+                    let str = decoder.decode(value, {stream: true});
+                    console.log(str);
+                    setDataByAxios((prevDataByFetch) => prevDataByFetch + str)
+                    // 读取下一个数据块
+                    return reader.read().then(processText);
+                });
+
+            });
+    }
+    return <>
+        <p>
+            <button onClick={byAxios}>使用Axios读取流式响应</button>
+
+        </p>
+        <p> {dataByAxios}</p>
+    </>;
+}
+```
+@setup
+
+```js
+{
+    dependencies: {
+        "axios":"1.6.0",
+            "@dongjak-extensions/http-client": "^3.5.0",
+    }
+}
+```
+:::
+
+::::: details 核心代码
+```ts
+axios({
+    method: 'get',
+    url: 'http://localhost:3000/api/stream4',
+    responseType: 'stream',
+    adapter: fetchAdapter,  // 使用fetch api来处理请求
+})
+    .then(response => {
+        //当响应是一个流时,就不要直接读取数据了,而是使用流的方式来处理
+        const res = response as any as MixResponse
+        const reader = res.body?.getReader();
+        // 读取流中的数据
+        let decoder = new TextDecoder(); // 用于将流中的字节解码成字符串
+        reader?.read().then(function processText({done, value}): any {
+            if (done) {
+                // 流已经结束
+                console.log('Stream complete');
+                return;
+            }
+
+            // 将 Uint8Array 缓冲区转换为文本
+            let str = decoder.decode(value, {stream: true});
+            console.log(str);
+            setDataByAxios((prevDataByFetch) => prevDataByFetch + str)
+            // 读取下一个数据块
+            return reader.read().then(processText);
+        });
+
+    });
+```
+:::::
 
 ## 声明式API
 

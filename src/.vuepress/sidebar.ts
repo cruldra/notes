@@ -21,6 +21,12 @@ export default sidebar({
             collapsible: true,
             children: "structure",
         },
+    ], "/Programming/Frontend/Http-Client/": [
+        {
+            text: "Http-Client",
+            collapsible: true,
+            children: "structure",
+        },
     ],
     "/Programming/Frontend/Javascript/": [
         {
@@ -60,6 +66,12 @@ export default sidebar({
     "/Solutions/Payment/": [
         {
             text: "支付解决方案",
+            collapsible: true,
+            children: "structure",
+        },
+    ], "/Solutions/WebStreams/": [
+        {
+            text: "Web流",
             collapsible: true,
             children: "structure",
         },

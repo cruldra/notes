@@ -55,6 +55,13 @@ export default navbar([
                     text:"React Router Dom",
                     link:'Routing/React Router Dom/简介'
                 }]
+            },
+            {
+                text: "http客户端",
+                children: [{
+                    text:"Axios",
+                    link:'Http-Client/Axios'
+                }]
             }
         ],
     },
@@ -72,12 +79,24 @@ export default navbar([
                     text:"微信",
                     link:'Payment/微信/开通流程'
                 }]
+            }, {
+                text: "Web流",
+                link:'WebStreams/简介'
             },
         ]
     },
     {
         text: "工具",
-        link: '/Tools/'
+        prefix: '/Tools/',
+        children:[
+            {
+                text: "链接预览",
+                children: [{
+                    text:"Iframely",
+                    link:'https://iframely.com/home'
+                } ]
+            }
+        ]
     },
     {
         text: "项目",

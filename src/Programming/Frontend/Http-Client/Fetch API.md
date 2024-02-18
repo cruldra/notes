@@ -4,7 +4,6 @@ comment: false
 editLink: false
 prev: false
 next: false
-order: 1
 ---
 
 ## 简介
@@ -69,7 +68,7 @@ const options = {
 const optionsJsonString = JSON.stringify(options);
 
 // 创建一个Blob对象并设置其内容类型为application/json
-const optionsBlob = new Blob([optionsJsonString], { type: "application/json" });
+const optionsBlob = new Blob([optionsJsonString], {type: "application/json"});
 
 // 创建一个新的FormData对象
 const formData = new FormData();
@@ -83,20 +82,108 @@ formData.append("speech", fileField.files[0]);
 
 // 现在可以发送formData对象
 fetch('http://localhost:8084/api/speech', {
-  method: 'POST',
-  headers: {
-    'Authorization': 'Bearer your-token-here',
-  },
-  body: formData
+    method: 'POST',
+    headers: {
+        'Authorization': 'Bearer your-token-here',
+    },
+    body: formData
 })
-.then(response => response.json())
-.then(result => {
-  console.log('Success:', result);
-})
-.catch(error => {
-  console.error('Error:', error);
-});
+    .then(response => response.json())
+    .then(result => {
+        console.log('Success:', result);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 ```
+
+## 读取流式响应
+
+要使用下面的例子,你需要一个流式响应的后端,下面提供了一个例子:
+
+<div class="iframely-embed"><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://github.com/cruldra/mock-steam" data-iframely-url="//cdn.iframe.ly/api/iframe?card=small&url=https%3A%2F%2Fgithub.com%2Fcruldra%2Fmock-steam&key=5045bb5ca67efdd8988cff4f00405219"></a></div></div>
+  <component  :is="'script'" async src="//cdn.iframe.ly/embed.js" charset="utf-8"></component>
+
+然后点击下面例子中的"使用fetch读取流式响应"按钮,可以看到流式响应的效果.核心代码如下:
+
+```ts
+fetch('http://localhost:3000/api/stream4')
+            .then(response => {
+                // response.body 是一个 ReadableStream
+                const reader = response.body!!.getReader();
+
+                // 读取流中的数据
+                let decoder = new TextDecoder(); // 用于将流中的字节解码成字符串
+                reader.read().then(function processText({done, value}): any {
+                    if (done) {
+                        // 流已经结束
+                        console.log('Stream complete');
+                        return;
+                    }
+
+                    // 将 Uint8Array 缓冲区转换为文本
+                    let str = decoder.decode(value, {stream: true});
+                    console.log(str);
+                    setDataByFetch((prevDataByFetch) => prevDataByFetch + str)
+                    // 读取下一个数据块
+                    return reader.read().then(processText);
+                });
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+            });
+```
+
+::: sandpack#react-ts 使用fetch读取流式响应 [  theme=dark]
+
+@file /App.tsx
+
+```tsx 
+import {useCallback, memo, useState} from "react";
+
+
+export default () => {
+    const [dataByFetch, setDataByFetch] = useState('data: ')
+    const byFetch = () => {
+        // 假设你的流式 API 端点是 "/api/stream"
+        // fetch('https://mock-steam-git-master-cruldras-projects.vercel.app/api/stream4',{mode:"no-cors"})
+        fetch('http://localhost:3000/api/stream4')
+            .then(response => {
+                // response.body 是一个 ReadableStream
+                const reader = response.body!!.getReader();
+
+                // 读取流中的数据
+                let decoder = new TextDecoder(); // 用于将流中的字节解码成字符串
+                reader.read().then(function processText({done, value}): any {
+                    if (done) {
+                        // 流已经结束
+                        console.log('Stream complete');
+                        return;
+                    }
+
+                    // 将 Uint8Array 缓冲区转换为文本
+                    let str = decoder.decode(value, {stream: true});
+                    console.log(str);
+                    setDataByFetch((prevDataByFetch) => prevDataByFetch + str)
+                    // 读取下一个数据块
+                    return reader.read().then(processText);
+                });
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+            });
+    }
+    return <>
+        <p>
+            <button onClick={byFetch}>使用fetch读取流式响应</button>
+
+        </p>
+        <p> {dataByFetch}</p>
+    </>;
+}
+```
+
+:::
 
 ## API
 
