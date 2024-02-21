@@ -121,6 +121,24 @@ export default navbar([
                     text: "gifcap",
                     link: 'https://gifcap.dev/'
                 }]
+            },
+            {
+                text: "虚拟化",
+                children: [{
+                    text: "Docker",
+                    link: 'Docker/简介'
+                }]
+            },
+            {
+                text: "版本控制",
+                children: [{
+                    text: "Git",
+                    link: 'Git/简介'
+                }]
+            },
+            {
+                text: "Http Server",
+                link: 'Http Server/Caddy/简介'
             }
         ]
     },

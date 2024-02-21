@@ -79,4 +79,4 @@ docker exec -it caddy_v2ray sh -c 'cd /etc/caddy && caddy reload'
 
 下面这张图可以帮助你理解这几个组件的关系:
 
-![](./assets/v2ray_tls_websocket_nginx.png)
+![](https://cdn.jsdelivr.net/gh/hhypygy/picx-images-hosting@master/v2ray_tls_websocket_nginx.9gwasm9udf.webp)

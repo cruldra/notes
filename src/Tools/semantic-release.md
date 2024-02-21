@@ -55,11 +55,11 @@ module.exports = {
 
 1. 创建一个镜像仓库
 
-![](./assets/img.png)
+![](https://cdn.jsdelivr.net/gh/hhypygy/picx-images-hosting@master/img.2yy2zax3tn.webp)
 
 2. 设置访问密码
 
-![](./assets/img2.png)
+![](https://cdn.jsdelivr.net/gh/hhypygy/picx-images-hosting@master/img2.77da94o6n1.webp)
 
 3. 在`.releaserc.js`中配置`semantic-release-docker`
 
@@ -83,11 +83,11 @@ module.exports = {
 
 `dockerTags` - 版本标记,数组中的每个标记都会发布一个对应的镜像,内容都一样,只是标记不同
 
-![](./assets/img_1.png)
+![img_1](https://cdn.jsdelivr.net/gh/hhypygy/picx-images-hosting@master/img_1.7smxvfja72.webp)
 
 `dockerImage` - 对应仓库的名称⤵️
 
-![](./assets/img3.png)
+![img3](https://cdn.jsdelivr.net/gh/hhypygy/picx-images-hosting@master/img3.4n7fwhombi.webp)
 
 `dockerProject` - 创建镜像仓库时选择的命名空间⤵️
 

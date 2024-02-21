@@ -103,6 +103,27 @@ export default sidebar({
             children: "structure",
         },
 
+    ],  "/Tools/Docker/": [
+        {
+            text: "Docker",
+            collapsible: true,
+            children: "structure",
+        },
+
+    ], "/Tools/Git/": [
+        {
+            text: "Git",
+            collapsible: true,
+            children: "structure",
+        },
+
+    ], "/Tools/Http Server/": [
+        {
+            text: "Http Server",
+            collapsible: true,
+            children: "structure",
+        },
+
     ],
     "/Tools/": [
         {
