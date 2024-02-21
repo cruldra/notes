@@ -69,9 +69,17 @@ export default sidebar({
             collapsible: true,
             children: "structure",
         },
-    ], "/Solutions/WebStreams/": [
+    ],
+    "/Solutions/WebStreams/": [
         {
             text: "Web流",
+            collapsible: true,
+            children: "structure",
+        },
+    ],
+    "/Programming/SpringBoot/": [
+        {
+            text: "Spring Boot",
             collapsible: true,
             children: "structure",
         },
@@ -88,7 +96,14 @@ export default sidebar({
         },
 
     ],
+    "/Programming/Database/": [
+        {
+            text: "数据库",
+            collapsible: true,
+            children: "structure",
+        },
 
+    ],
     "/Tools/": [
         {
             text: "工具",

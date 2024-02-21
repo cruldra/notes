@@ -71,7 +71,7 @@ emitter.send(SseEmitter.event().name("customEvent").data("{name:'11'}"));
 
 ### 服务端
 
-* [在`Spring Web MVC`中使用`SSE`](../../JVM/SpringBoot/WebMvc/SSE.md)
+* [在`Spring Web MVC`中使用`SSE`](../SpringBoot/WebMvc/SSE.md)
 
 ### 客户端
 
