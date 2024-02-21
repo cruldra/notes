@@ -124,6 +124,13 @@ export default sidebar({
             children: "structure",
         },
 
+    ],"/Tools/Network/": [
+        {
+            text: "网络",
+            collapsible: true,
+            children: "structure",
+        },
+
     ],
     "/Tools/": [
         {

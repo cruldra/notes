@@ -124,21 +124,19 @@ export default navbar([
             },
             {
                 text: "虚拟化",
-                children: [{
-                    text: "Docker",
-                    link: 'Docker/简介'
-                }]
+                link: 'Docker/简介'
             },
             {
                 text: "版本控制",
-                children: [{
-                    text: "Git",
-                    link: 'Git/简介'
-                }]
+                link: 'Git/简介'
             },
             {
-                text: "Http Server",
+                text: "Http服务器",
                 link: 'Http Server/Caddy/简介'
+            },
+            {
+                text: "网络",
+                link: 'Network/SSH'
             }
         ]
     },

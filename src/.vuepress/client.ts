@@ -10,6 +10,8 @@ import ImageRenderer from "./components/ImageRenderer.vue";
 import Todo from "./components/Todo.vue";
 // @ts-ignore
 import NaiveUiRoot from "./components/NaiveUiRoot.vue";
+// @ts-ignore
+import CommandBuilder from "./components/CommandBuilder.vue";
 import  AudioPlayer from 'vue3-audio-player'
 import 'vue3-audio-player/dist/style.css'
 // @ts-ignore
@@ -27,6 +29,7 @@ export default defineClientConfig({
        // app.component("Test", Test);
        app.component("AudioPlayer", AudioPlayer);
        app.component("NaiveUiRoot", NaiveUiRoot);
+       app.component("CommandBuilder", CommandBuilder);
        //  app.use(RedisVersionHistories);
     },
 });
