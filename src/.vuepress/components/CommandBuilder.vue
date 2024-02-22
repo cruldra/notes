@@ -1,7 +1,21 @@
 <script setup lang="ts">
-import {onMounted, reactive, ref, h} from "vue";
-import {NTag, SelectRenderTag} from "naive-ui";
+import {onMounted, reactive, ref} from "vue";
+import {
+  Button,
+  Card,
+  ConfigProvider,
+  Form,
+  FormItem,
+  Input,
+  InputNumber,
+  message,
+  Select,
+  SelectOption,
+  theme
+} from 'ant-design-vue'
+// import 'ant-design-vue/dist/reset.css';
 
+const [messageApi, contextHolder] = message.useMessage();
 type Editor = {
   label: string
   type: "text" | "number"
@@ -50,7 +64,7 @@ const getCmd = () => {
   // message.error("sss")
   if (navigator.clipboard) {
     navigator.clipboard.writeText(replaceTemplate(props.cmdTemplate, formValue)).then(() => {
-      // message.success('已复制到剪切板');
+      messageApi.info('已复制到剪切板');
     }).catch(err => {
       //message.error('无法复制文本: ', err);
     });
@@ -58,7 +72,7 @@ const getCmd = () => {
     // message.warning('浏览器不支持写入剪切板');
   }
 }
-
+const labelCol = { style: { width: '150px' } };
 const onTemplateChange = (templateName:string) => {
 
   props.templates.forEach((item) => {
@@ -70,37 +84,42 @@ const onTemplateChange = (templateName:string) => {
 </script>
 
 <template>
-  <NaiveUiRoot>
-    <n-card title="命令构造器">
+  <ConfigProvider
+      :theme="{
+      algorithm: theme.darkAlgorithm,
+    }"
+  >
+    <context-holder />
+    <Card title="命令构造器">
       <div
           style="width: 100%;height: 100%;display: flex;flex-direction: column;justify-content: center;align-items: center;">
-        <n-form label-width="150" style="width: 100%" label-placement="left">
-          <n-form-item v-if="props.templates?.length>0" label="模板">
-            <n-select
-                @update:value="onTemplateChange"
+        <Form     :label-col="labelCol"   :model="formValue" style="width: 100%" >
+          <FormItem  v-if="props.templates?.length>0" label="模板">
+            <Select
+                ref="select"
                 v-model:value="selectedTemplate"
-                clearable
-                placeholder="选择一个模板看看"
-                :options="props.templates?.map(it=> ({
-  label: `${it.name}-${it.description}`,
-          value: it.name
-                }))"
-            />
-          </n-form-item>
+                @change="onTemplateChange"
+            >
+              <select-option v-for="(it,ix) in props.templates" :key="ix" :value="it.name">{{`${it.name}-${it.description}`}}</select-option>
+            </Select>
+          </FormItem>
 
-          <n-form-item v-for="(item,index) in props.editors" :key="index" :label="item.label">
-            <n-input v-if="item.type==='text'" v-model:value="formValue[item.field]" clearable
+          <FormItem v-for="(item,index) in props.editors" :key="index" :label="item.label as any">
+            <Input v-if="item.type==='text'" v-model:value="formValue[item.field]"
                      :placeholder="item.placeholder??''"/>
-            <n-input-number style="width: 100%" v-if="item.type==='number'" :placeholder="item.placeholder??''"
-                            v-model:value="formValue[item.field]" clearable/>
-          </n-form-item>
-        </n-form>
-        <n-button round type="primary" @click="getCmd"> 获取命令
-        </n-button>
+            <InputNumber style="width: 100%" v-if="item.type==='number'" :placeholder="item.placeholder??''"
+                            v-model:value="formValue[item.field]"  />
+          </FormItem>
+        </Form>
+        <Button   type="primary" @click="getCmd"> 获取命令
+        </Button>
       </div>
-    </n-card>
+    </Card>
 
-  </NaiveUiRoot>
+  </ConfigProvider>
+
+
+
 </template>
 
 <style scoped>

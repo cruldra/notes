@@ -5,7 +5,7 @@ import UnoCSS from 'unocss/vite'
 import Components from 'unplugin-vue-components/vite';
 import AutoImport from "unplugin-auto-import/vite";
 // import {searchProPlugin} from "vuepress-plugin-search-pro";
-import {NaiveUiResolver} from "unplugin-vue-components/resolvers";
+import {NaiveUiResolver ,AntDesignVueResolver } from "unplugin-vue-components/resolvers";
 // import {cut} from "nodejs-jieba";
 const base = <"/" | `/${string}/`>process.env["BASE"] || "/";
 export default defineUserConfig({
@@ -21,7 +21,7 @@ export default defineUserConfig({
             // },
             ssr: {
                 // SSR 相关配置
-                noExternal: ['vue3-audio-player', 'naive-ui'],
+                noExternal: ['vue3-audio-player', 'naive-ui', 'ant-design-vue'],
             },
             // resolve: {
             //     mainFields: ['module', 'main'],
@@ -41,6 +41,7 @@ export default defineUserConfig({
                     dts: 'src/typings/components.d.ts',
                     resolvers: [
                         NaiveUiResolver(),
+                        //AntDesignVueResolver()
                     ]
                 }),
             ],
