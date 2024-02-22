@@ -131,6 +131,13 @@ export default sidebar({
             children: "structure",
         },
 
+    ],"/Tools/Debug/": [
+        {
+            text: "调试",
+            collapsible: true,
+            children: "structure",
+        },
+
     ],
     "/Tools/": [
         {

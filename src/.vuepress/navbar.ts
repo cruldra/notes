@@ -110,17 +110,11 @@ export default navbar([
         children: [
             {
                 text: "链接预览",
-                children: [{
-                    text: "Iframely",
-                    link: 'https://iframely.com/home'
-                }]
+                link: 'https://iframely.com/home'
             },
             {
                 text: "录屏",
-                children: [{
-                    text: "gifcap",
-                    link: 'https://gifcap.dev/'
-                }]
+                link: 'https://gifcap.dev/'
             },
             {
                 text: "虚拟化",
@@ -137,6 +131,10 @@ export default navbar([
             {
                 text: "网络",
                 link: 'Network/SSH'
+            },
+            {
+                text: "调试",
+                link: 'Debug/DevTools/简介'
             }
         ]
     },

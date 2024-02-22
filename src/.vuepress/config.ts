@@ -14,6 +14,7 @@ export default defineUserConfig({
     lang: "zh-CN",
     title: "一星的臭弟弟",
     description: "vuepress-theme-hope 的文档演示",
+    port:8082,
     bundler: viteBundler({
         viteOptions: {
             // define: {

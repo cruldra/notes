@@ -16,13 +16,14 @@ import {
 // import 'ant-design-vue/dist/reset.css';
 
 const [messageApi, contextHolder] = message.useMessage();
+type SelectOptionModel =   { label: string, value: string }
 type Editor = {
   label: string
-  type: "text" | "number"
+  type: "text" | "number"|"select"
   defaultValue?: string
   field: string
   placeholder: string
-
+  options?: (string|number|SelectOptionModel)[]
 }
 type FromValue = Record<string, any>
 type Template = {
@@ -42,8 +43,24 @@ const initDefaults = () => {
     formValue[item.field] = item.defaultValue
   })
 }
+
+const generateOptions = () => {
+  props.editors.filter(it=> it.type==='select').forEach((item) => {
+    item.options =  item.options.map(it=>{
+
+      switch (typeof it){
+        case "number":
+        case "string":
+          return {label:it,value:it} as SelectOptionModel
+        default:
+          return it as SelectOptionModel
+      }
+    })
+  })
+}
 onMounted(() => {
   initDefaults()
+  generateOptions()
 })
 const selectedTemplate = ref(undefined)
 
@@ -72,8 +89,8 @@ const getCmd = () => {
     // message.warning('浏览器不支持写入剪切板');
   }
 }
-const labelCol = { style: { width: '150px' } };
-const onTemplateChange = (templateName:string) => {
+const labelCol = {style: {width: '150px'}};
+const onTemplateChange = (templateName: string) => {
 
   props.templates.forEach((item) => {
     if (item.name === templateName) {
@@ -89,35 +106,44 @@ const onTemplateChange = (templateName:string) => {
       algorithm: theme.darkAlgorithm,
     }"
   >
-    <context-holder />
+    <context-holder/>
     <Card title="命令构造器">
       <div
           style="width: 100%;height: 100%;display: flex;flex-direction: column;justify-content: center;align-items: center;">
-        <Form     :label-col="labelCol"   :model="formValue" style="width: 100%" >
-          <FormItem  v-if="props.templates?.length>0" label="模板">
+        <Form :label-col="labelCol" :model="formValue" style="width: 100%">
+          <FormItem v-if="props.templates?.length>0" label="模板">
             <Select
                 ref="select"
                 v-model:value="selectedTemplate"
                 @change="onTemplateChange"
             >
-              <select-option v-for="(it,ix) in props.templates" :key="ix" :value="it.name">{{`${it.name}-${it.description}`}}</select-option>
+              <select-option v-for="(it,ix) in props.templates" :key="ix" :value="it.name">
+                {{ `${it.name}-${it.description}` }}
+              </select-option>
             </Select>
           </FormItem>
 
-          <FormItem v-for="(item,index) in props.editors" :key="index" :label="item.label as any">
-            <Input v-if="item.type==='text'" v-model:value="formValue[item.field]"
-                     :placeholder="item.placeholder??''"/>
-            <InputNumber style="width: 100%" v-if="item.type==='number'" :placeholder="item.placeholder??''"
-                            v-model:value="formValue[item.field]"  />
+          <FormItem v-for="(editor,index) in props.editors" :key="index" :label="editor.label as any">
+            <Input v-if="editor.type==='text'" v-model:value="formValue[editor.field]"
+                   :placeholder="editor.placeholder??''"/>
+            <InputNumber style="width: 100%" v-if="editor.type==='number'" :placeholder="editor.placeholder??''"
+                         v-model:value="formValue[editor.field]"/>
+            <Select
+                v-if="editor.type==='select'"
+                v-model:value="formValue[editor.field]"
+            >
+              <select-option v-for="(option,ix) in editor.options" :key="ix" :value="(option as SelectOptionModel).value">
+                {{ (option as SelectOptionModel).label }}
+              </select-option>
+            </Select>
           </FormItem>
         </Form>
-        <Button   type="primary" @click="getCmd"> 获取命令
+        <Button type="primary" @click="getCmd"> 获取命令
         </Button>
       </div>
     </Card>
 
   </ConfigProvider>
-
 
 
 </template>
