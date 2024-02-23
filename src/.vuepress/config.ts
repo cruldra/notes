@@ -41,7 +41,7 @@ export default defineUserConfig({
                 Components({
                     dts: 'src/typings/components.d.ts',
                     resolvers: [
-                        NaiveUiResolver(),
+                        //NaiveUiResolver(),
                         //AntDesignVueResolver()
                     ]
                 }),

@@ -1,6 +1,7 @@
 import { defineClientConfig } from "vuepress/client";
 import 'uno.css';
 import CommandBuilder from "./components/CommandBuilder.vue";
+import ImageRenderer from "./components/ImageRenderer.vue";
 import  AudioPlayer from 'vue3-audio-player'
 import 'vue3-audio-player/dist/style.css'
 import { defineSandpackConfig } from "vuepress-plugin-md-enhance/client";
@@ -15,6 +16,7 @@ export default defineClientConfig({
        // app.component("Test", Test);
        app.component("AudioPlayer", AudioPlayer);
        app.component("CommandBuilder", CommandBuilder);
+       app.component("ImageRenderer", ImageRenderer);
        //  app.use(RedisVersionHistories);
     },
 });

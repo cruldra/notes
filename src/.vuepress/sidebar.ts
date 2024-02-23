@@ -7,6 +7,12 @@ export default sidebar({
             collapsible: true,
             children: "structure",
         },
+    ],    "/Programming/Frontend/Vue/": [
+        {
+            text: "Vue",
+            collapsible: true,
+            children: "structure",
+        },
     ],
     "/Programming/Frontend/Css/": [
         {

@@ -52,6 +52,10 @@ export default navbar([
                         prefix: "React",
                         link: 'React/简介'
                     },
+                    {
+                        text: "Vue",
+                        link: 'Vue/简介'
+                    },
                 ]
             },
             {
