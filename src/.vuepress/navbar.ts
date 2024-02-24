@@ -69,7 +69,7 @@ export default navbar([
                 text: "构建工具",
                 children: [{
                     text: "Vite",
-                    link: 'Vite/Vite'
+                    link: 'Build Tools/Vite/简介'
                 }]
             },
             {

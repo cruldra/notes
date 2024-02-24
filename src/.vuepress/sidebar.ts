@@ -48,9 +48,9 @@ export default sidebar({
             children: "structure",
         },
     ],
-    "/Programming/Frontend/Vite/": [
+    "/Programming/Frontend/Build Tools/": [
         {
-            text: "Vite",
+            text: "Build Tools",
             collapsible: true,
             children: "structure",
         },
