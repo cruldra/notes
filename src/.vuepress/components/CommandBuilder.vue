@@ -16,14 +16,14 @@ import {
 // import 'ant-design-vue/dist/reset.css';
 
 const [messageApi, contextHolder] = message.useMessage();
-type SelectOptionModel =   { label: string, value: string }
+type SelectOptionModel = { label: string, value: string }
 type Editor = {
   label: string
-  type: "text" | "number"|"select"
+  type: "text" | "number" | "select"
   defaultValue?: string
   field: string
   placeholder: string
-  options?: (string|number|SelectOptionModel)[]
+  options?: (string | number | SelectOptionModel)[]
 }
 type FromValue = Record<string, any>
 type Template = {
@@ -36,6 +36,7 @@ type Props = {
   editors: Editor[]
   cmdTemplate: string,
   templates?: Template[]
+  title?: string
 }
 const formValue = reactive<FromValue>({})
 const initDefaults = () => {
@@ -45,13 +46,13 @@ const initDefaults = () => {
 }
 
 const generateOptions = () => {
-  props.editors.filter(it=> it.type==='select').forEach((item) => {
-    item.options =  item.options.map(it=>{
+  props.editors.filter(it => it.type === 'select').forEach((item) => {
+    item.options = item.options.map(it => {
 
-      switch (typeof it){
+      switch (typeof it) {
         case "number":
         case "string":
-          return {label:it,value:it} as SelectOptionModel
+          return {label: it, value: it} as SelectOptionModel
         default:
           return it as SelectOptionModel
       }
@@ -107,7 +108,7 @@ const onTemplateChange = (templateName: string) => {
     }"
   >
     <context-holder/>
-    <Card title="命令构造器">
+    <Card :title="props.title??'命令构造器'">
       <div
           style="width: 100%;height: 100%;display: flex;flex-direction: column;justify-content: center;align-items: center;">
         <Form :label-col="labelCol" :model="formValue" style="width: 100%">
@@ -132,7 +133,8 @@ const onTemplateChange = (templateName: string) => {
                 v-if="editor.type==='select'"
                 v-model:value="formValue[editor.field]"
             >
-              <select-option v-for="(option,ix) in editor.options" :key="ix" :value="(option as SelectOptionModel).value">
+              <select-option v-for="(option,ix) in editor.options" :key="ix"
+                             :value="(option as SelectOptionModel).value">
                 {{ (option as SelectOptionModel).label }}
               </select-option>
             </Select>

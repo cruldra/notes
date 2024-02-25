@@ -113,6 +113,10 @@ export default navbar([
         prefix: '/Tools/',
         children: [
             {
+                text: "所有",
+                link: '全角转半角'
+            },
+            {
                 text: "链接预览",
                 link: 'https://iframely.com/home'
             },

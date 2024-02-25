@@ -1,5 +1,5 @@
 ---
-title: Https
+title: plugin-basic-ssl
 comment: false
 editLink: false
 prev: false
