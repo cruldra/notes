@@ -15,7 +15,8 @@ export default navbar([
                 link: "Security/简介"
             }
         ]
-    },{
+    },
+    {
         text: "数据库",
         prefix: "/Programming/Database",
         children: [
@@ -60,31 +61,23 @@ export default navbar([
             },
             {
                 text: "状态管理",
-                children: [{
-                    text: "Zustand",
-                    link: 'Zustand/简介'
-                }]
-            },
-            {
-                text: "构建工具",
-                children: [{
-                    text: "Vite",
-                    link: 'Build Tools/Vite/简介'
-                }]
+                link: 'Zustand/简介'
             },
             {
                 text: "路由系统",
-                children: [{
-                    text: "React Router Dom",
-                    link: 'Routing/React Router Dom/简介'
-                }]
+                link: 'Routing/React Router Dom/简介'
             },
             {
-                text: "http客户端",
-                children: [{
-                    text: "Axios",
-                    link: 'Http-Client/Axios'
-                }]
+                text: "HTTP客户端",
+                link: 'Http-Client/Axios'
+            },
+            {
+                text: "开发工具",
+                link: 'DevTools/Husky'
+            },
+            {
+                text: "构建工具",
+                link: 'BuildTools/Vite/简介'
             }
         ],
     },

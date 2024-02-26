@@ -29,7 +29,7 @@ export default sidebar({
         },
     ], "/Programming/Frontend/Http-Client/": [
         {
-            text: "Http-Client",
+            text: "Http客户端",
             collapsible: true,
             children: "structure",
         },
@@ -48,9 +48,15 @@ export default sidebar({
             children: "structure",
         },
     ],
-    "/Programming/Frontend/Build Tools/": [
+    "/Programming/Frontend/BuildTools/": [
         {
-            text: "Build Tools",
+            text: "构建工具",
+            collapsible: true,
+            children: "structure",
+        },
+    ],  "/Programming/Frontend/DevTools/": [
+        {
+            text: "开发工具",
             collapsible: true,
             children: "structure",
         },
