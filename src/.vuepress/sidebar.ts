@@ -48,15 +48,9 @@ export default sidebar({
             children: "structure",
         },
     ],
-    "/Programming/Frontend/BuildTools/": [
+    "/Programming/Frontend/DevBuildRelease/": [
         {
-            text: "构建工具",
-            collapsible: true,
-            children: "structure",
-        },
-    ],  "/Programming/Frontend/DevTools/": [
-        {
-            text: "开发工具",
+            text: "开发、构建和发布",
             collapsible: true,
             children: "structure",
         },

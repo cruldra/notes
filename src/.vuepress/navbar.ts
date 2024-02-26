@@ -72,12 +72,8 @@ export default navbar([
                 link: 'Http-Client/Axios'
             },
             {
-                text: "开发工具",
-                link: 'DevTools/Husky'
-            },
-            {
-                text: "构建工具",
-                link: 'BuildTools/Vite/简介'
+                text: "开发、构建和发布",
+                link: 'DevBuildRelease/SemanticRelease'
             }
         ],
     },
