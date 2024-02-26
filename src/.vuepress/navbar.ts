@@ -105,6 +105,9 @@ export default navbar([
             }, {
                 text: "Web流",
                 link: 'WebStreams/简介'
+            }, {
+                text: "CDN",
+                link: 'CDN/简介'
             },
         ]
     },

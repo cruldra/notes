@@ -76,6 +76,13 @@ export default sidebar({
             children: "structure",
         },
     ],
+    "/Solutions/CDN/": [
+        {
+            text: "CDN",
+            collapsible: true,
+            children: "structure",
+        },
+    ],
     "/Solutions/WebStreams/": [
         {
             text: "Web流",

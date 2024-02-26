@@ -1,0 +1,32 @@
+@startuml
+package "Client Side" {
+  [User's Browser] as UBrowser
+}
+
+package "Your Infrastructure" {
+  [Origin Server] as OServer
+}
+
+package "CDN Network" {
+  [CDN Edge Server] as CDN1
+  [CDN Edge Server] as CDN2
+  [CDN Edge Server] as CDN3
+
+  CDN1 --> CDN2 : Replicate Content
+  CDN2 --> CDN3 : Replicate Content
+  CDN3 --> CDN1 : Replicate Content
+}
+
+UBrowser -right-> CDN1 : Request Content
+UBrowser -right-> CDN2 : Request Content
+UBrowser -right-> CDN3 : Request Content
+
+CDN1 -right-> OServer : Fetch Original Content
+CDN2 -right-> OServer : Fetch Original Content
+CDN3 -right-> OServer : Fetch Original Content
+
+note right of CDN1 : Cached Content
+note right of CDN2 : Cached Content
+note right of CDN3 : Cached Content
+
+@enduml
