@@ -7,7 +7,7 @@ export default sidebar({
             collapsible: true,
             children: "structure",
         },
-    ],    "/Programming/Frontend/Vue/": [
+    ], "/Programming/Frontend/Vue/": [
         {
             text: "Vue",
             collapsible: true,
@@ -82,6 +82,18 @@ export default sidebar({
             collapsible: true,
             children: "structure",
         },
+    ], "/Solutions/SMS/": [
+        {
+            text: "短信服务",
+            collapsible: true,
+            children: "structure",
+        },
+    ], "/Solutions/OSS/": [
+        {
+            text: "对象存储服务",
+            collapsible: true,
+            children: "structure",
+        },
     ],
     "/Solutions/WebStreams/": [
         {
@@ -116,7 +128,7 @@ export default sidebar({
             children: "structure",
         },
 
-    ],  "/Tools/Docker/": [
+    ], "/Tools/Docker/": [
         {
             text: "Docker",
             collapsible: true,
@@ -137,14 +149,14 @@ export default sidebar({
             children: "structure",
         },
 
-    ],"/Tools/Network/": [
+    ], "/Tools/Network/": [
         {
             text: "网络",
             collapsible: true,
             children: "structure",
         },
 
-    ],"/Tools/Debug/": [
+    ], "/Tools/Debug/": [
         {
             text: "调试",
             collapsible: true,

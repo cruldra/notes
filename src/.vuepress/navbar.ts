@@ -81,22 +81,18 @@ export default navbar([
         text: "解决方案",
         prefix: '/Solutions/',
         children: [
-
             {
                 text: "支付",
-                children: [{
-                    text: "支付宝",
-                    link: 'Payment/支付宝/简介'
-                }, {
-                    text: "微信",
-                    link: 'Payment/微信/开通流程'
-                }]
-            }, {
-                text: "Web流",
-                link: 'WebStreams/简介'
-            }, {
+                link: 'Payment/简介'
+            },   {
                 text: "CDN",
                 link: 'CDN/简介'
+            }, {
+                text: "对象存储",
+                link: 'OSS/简介'
+            },{
+                text: "短信",
+                link: 'SMS/简介'
             },
         ]
     },
