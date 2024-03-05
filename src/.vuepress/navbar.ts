@@ -56,6 +56,9 @@ export default navbar([
                     {
                         text: "Vue",
                         link: 'Vue/简介'
+                    },  {
+                        text: "Antd",
+                        link: 'Antd/简介'
                     },
                 ]
             },
@@ -93,6 +96,9 @@ export default navbar([
             },{
                 text: "短信",
                 link: 'SMS/简介'
+            },{
+                text: "异常处理",
+                link: 'Exception-Handle/简介'
             },
         ]
     },

@@ -47,6 +47,12 @@ export default sidebar({
             collapsible: true,
             children: "structure",
         },
+    ], "/Programming/Frontend/Antd/": [
+        {
+            text: "Antd",
+            collapsible: true,
+            children: "structure",
+        },
     ],
     "/Programming/Frontend/DevBuildRelease/": [
         {
@@ -72,6 +78,13 @@ export default sidebar({
     "/Solutions/Payment/": [
         {
             text: "支付解决方案",
+            collapsible: true,
+            children: "structure",
+        },
+    ],
+    "/Solutions/Exception-Handle/": [
+        {
+            text: "异常处理",
             collapsible: true,
             children: "structure",
         },
