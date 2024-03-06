@@ -115,20 +115,27 @@ export default sidebar({
             children: "structure",
         },
     ],
-    "/Programming/SpringBoot/Data-JPA": [
+    "/Programming/SpringBoot/Data/JPA/": [
         {
-            text: "Data-JPA",
+            text: "Data JPA",
             collapsible: true,
             children: "structure",
         },
     ],
-/*    "/Programming/SpringBoot/": [
+    "/Programming/SpringBoot/Security/": [
+        {
+            text: "Security",
+            collapsible: true,
+            children: "structure",
+        },
+    ],
+    "/Programming/SpringBoot/": [
         {
             text: "Spring Boot",
             collapsible: true,
             children: "structure",
         },
-    ],*/
+    ],
 
     "/JVM/": [
         {

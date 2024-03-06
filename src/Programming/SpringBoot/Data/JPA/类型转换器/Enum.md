@@ -1,5 +1,5 @@
 ---
-title: 枚举(Enum)类型
+title: Enum
 comment: false
 editLink: false
 prev: false

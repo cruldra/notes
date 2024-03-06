@@ -8,11 +8,11 @@ export default navbar([
     },
     {
         text: "Spring Boot",
-        prefix: "/Programming/SpringBoot",
+        prefix: "/Programming/SpringBoot/",
         children: [
             {
                 text: "Data JPA",
-                link: "Data-JPA/实体生命周期"
+                link: "Data/JPA/简介"
             },
             {
                 text: "Security",
