@@ -11,6 +11,10 @@ export default navbar([
         prefix: "/Programming/SpringBoot",
         children: [
             {
+                text: "Data JPA",
+                link: "Data-JPA/实体生命周期"
+            },
+            {
                 text: "Security",
                 link: "Security/简介"
             }
@@ -56,7 +60,7 @@ export default navbar([
                     {
                         text: "Vue",
                         link: 'Vue/简介'
-                    },  {
+                    }, {
                         text: "Antd",
                         link: 'Antd/简介'
                     },
@@ -87,16 +91,16 @@ export default navbar([
             {
                 text: "支付",
                 link: 'Payment/简介'
-            },   {
+            }, {
                 text: "CDN",
                 link: 'CDN/简介'
             }, {
                 text: "对象存储",
                 link: 'OSS/简介'
-            },{
+            }, {
                 text: "短信",
                 link: 'SMS/简介'
-            },{
+            }, {
                 text: "异常处理",
                 link: 'Exception-Handle/简介'
             },
