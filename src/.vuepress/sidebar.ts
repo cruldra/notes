@@ -191,6 +191,13 @@ export default sidebar({
             children: "structure",
         },
 
+    ], "/Tools/ProjectManage/": [
+        {
+            text: "项目管理",
+            collapsible: true,
+            children: "structure",
+        },
+
     ],
     "/Tools/": [
         {

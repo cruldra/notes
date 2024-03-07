@@ -141,6 +141,10 @@ export default navbar([
             {
                 text: "调试",
                 link: 'Debug/DevTools/简介'
+            },
+            {
+                text: "项目管理",
+                link: 'ProjectManage/JIRA'
             }
         ]
     },
