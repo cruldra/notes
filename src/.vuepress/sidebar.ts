@@ -172,7 +172,7 @@ export default sidebar({
 
     ], "/Tools/Http Server/": [
         {
-            text: "Http Server",
+            text: "Http服务器",
             collapsible: true,
             children: "structure",
         },
@@ -194,6 +194,13 @@ export default sidebar({
     ], "/Tools/ProjectManage/": [
         {
             text: "项目管理",
+            collapsible: true,
+            children: "structure",
+        },
+
+    ], "/Tools/Design/": [
+        {
+            text: "设计",
             collapsible: true,
             children: "structure",
         },

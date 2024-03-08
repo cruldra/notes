@@ -145,6 +145,10 @@ export default navbar([
             {
                 text: "项目管理",
                 link: 'ProjectManage/JIRA'
+            },
+            {
+                text: "设计",
+                link: 'Design/图片'
             }
         ]
     },

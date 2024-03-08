@@ -55,3 +55,8 @@ docker exec jira java -jar /var/agent/atlassian-agent.jar \                 I
 ![](https://cdn.jsdelivr.net/gh/hhypygy/picx-images-hosting@master/image.7w6kelxoua.webp)
 
 6. 最后把许可证粘贴到`JIRA`的插件许可证页面即可
+
+
+## SmartCommits
+
+https://help.gitkraken.com/git-integration-for-jira-data-center/smart-commits-docs-gij-self-managed/
