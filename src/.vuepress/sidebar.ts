@@ -128,6 +128,18 @@ export default sidebar({
             collapsible: true,
             children: "structure",
         },
+    ], "/Programming/SpringBoot/WebMvc/": [
+        {
+            text: "WebMvc",
+            collapsible: true,
+            children: "structure",
+        },
+    ],"/Programming/SpringBoot/BeanMapper/": [
+        {
+            text: "对象映射",
+            collapsible: true,
+            children: "structure",
+        },
     ],
     "/Programming/SpringBoot/": [
         {

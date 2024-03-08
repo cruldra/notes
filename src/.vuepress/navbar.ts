@@ -17,6 +17,14 @@ export default navbar([
             {
                 text: "Security",
                 link: "Security/简介"
+            },
+            {
+                text: "Web MVC",
+                link: "WebMvc/简介"
+            },
+            {
+                text: "Bean Mapper",
+                link: "BeanMapper/简介"
             }
         ]
     },
