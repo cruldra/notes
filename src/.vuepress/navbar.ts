@@ -25,6 +25,10 @@ export default navbar([
             {
                 text: "Bean Mapper",
                 link: "BeanMapper/简介"
+            },
+            {
+                text: "任务调度",
+                link: "Cron"
             }
         ]
     },

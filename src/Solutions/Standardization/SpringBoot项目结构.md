@@ -13,6 +13,7 @@ next: false
         └── 📁aop    // 切面
         └── 📁configs    // 配置类
         └── 📁context    // 上下文
+        └── 📁const    // 常量
         └── 📁controller   // 控制器
         └── 📁cron   // 定时任务
         └── 📁dto    // 数据传输对象

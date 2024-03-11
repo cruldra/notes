@@ -1,0 +1,59 @@
+---
+title: Cron
+comment: false
+editLink: false
+prev: false
+next: false
+---
+
+## 静态调度
+
+`静态调度`是指在`Spring Boot`应用程序启动时就已经确定了任务的执行时间,这种调度方式适用于那些执行时机固定的、不会变化的任务
+
+```kotlin
+@Component
+class HiUserFreeAccountCron(private val userFreeAccountService: com.hichat.api.service.HiUserFreeAccountService) {
+
+    @Scheduled(cron = "0 0 0 * * *") // 每天凌晨重置免费计划的用量
+    fun resetAllFreePoints() {
+        userFreeAccountService.resetAllFreePoints()
+    }
+}
+```
+
+## 动态调度
+
+`动态调度`是指在`Spring Boot`应用程序运行时根据一定的规则来决定任务的执行时间,这种调度方式适用于那些执行时机不固定的、会变化的任务
+
+一般我们将任务的执行时间保存在数据库中,然后在应用程序启动时读取这些数据,再根据这些数据来动态地调度任务
+
+```kotlin
+@Component
+class HiUserFreeAccountCron(
+    private val userFreeAccountService: HiUserFreeAccountService,
+    private val taskScheduler: TaskScheduler
+) {
+
+    init {
+        scheduleResetAllFreePointsTask();
+
+    }
+
+    private fun resetAllFreePoints() {
+        println("Reset all free points")
+        userFreeAccountService.resetAllFreePoints()
+    }
+
+    private fun scheduleResetAllFreePointsTask() {
+        val cronExpression: String = userFreeAccountService.getResetCronExpression()
+        val trigger = CronTrigger(cronExpression)
+        taskScheduler.schedule(this::resetAllFreePoints, trigger)
+    }
+
+}
+```
+
+
+## 常用工具
+
+* [Spring Schedule Cron Generator](https://codepen.io/etienne582/pen/xxOgwzX)
