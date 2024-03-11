@@ -111,6 +111,9 @@ export default navbar([
             }, {
                 text: "异常处理",
                 link: 'Exception-Handle/简介'
+            }, {
+                text: "标准化",
+                link: 'Standardization/简介'
             },
         ]
     },

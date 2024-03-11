@@ -114,6 +114,12 @@ export default sidebar({
             collapsible: true,
             children: "structure",
         },
+    ],   "/Solutions/Standardization/": [
+        {
+            text: "标准化",
+            collapsible: true,
+            children: "structure",
+        },
     ],
     "/Programming/SpringBoot/Data/JPA/": [
         {
