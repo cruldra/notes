@@ -59,4 +59,17 @@ docker exec jira java -jar /var/agent/atlassian-agent.jar \                 I
 
 ## SmartCommits
 
-https://help.gitkraken.com/git-integration-for-jira-data-center/smart-commits-docs-gij-self-managed/
+[参考](https://help.gitkraken.com/git-integration-for-jira-data-center/smart-commits-docs-gij-self-managed/)
+
+```text
+#comment 注释内容
+
+#time 1w 2d 4h 30m 工作日志
+
+#开始
+#解决
+#关闭
+#测试
+#重开
+
+```
