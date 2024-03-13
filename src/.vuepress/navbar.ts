@@ -13,6 +13,9 @@ export default navbar([
             {
                 text: "Data JPA",
                 link: "Data/JPA/简介"
+            },{
+                text: "Data Redis",
+                link: "Data/Redis/简介"
             },
             {
                 text: "Security",
@@ -34,11 +37,15 @@ export default navbar([
     },
     {
         text: "数据库",
-        prefix: "/Programming/Database",
+        prefix: "/Databases",
         children: [
             {
                 text: "Mysql",
                 link: "Mysql/简介"
+            },
+            {
+                text: "Redis",
+                link: "Redis/简介"
             }
         ]
     },

@@ -114,7 +114,7 @@ export default sidebar({
             collapsible: true,
             children: "structure",
         },
-    ],   "/Solutions/Standardization/": [
+    ], "/Solutions/Standardization/": [
         {
             text: "标准化",
             collapsible: true,
@@ -124,6 +124,12 @@ export default sidebar({
     "/Programming/SpringBoot/Data/JPA/": [
         {
             text: "Data JPA",
+            collapsible: true,
+            children: "structure",
+        },
+    ], "/Programming/SpringBoot/Data/Redis/": [
+        {
+            text: "Data Redis",
             collapsible: true,
             children: "structure",
         },
@@ -140,7 +146,7 @@ export default sidebar({
             collapsible: true,
             children: "structure",
         },
-    ],"/Programming/SpringBoot/BeanMapper/": [
+    ], "/Programming/SpringBoot/BeanMapper/": [
         {
             text: "对象映射",
             collapsible: true,
@@ -167,9 +173,16 @@ export default sidebar({
         },
 
     ],
-    "/Programming/Database/": [
+    "/Databases/Mysql/": [
         {
-            text: "数据库",
+            text: "Mysql",
+            collapsible: true,
+            children: "structure",
+        },
+
+    ], "/Databases/Redis/": [
+        {
+            text: "Redis",
             collapsible: true,
             children: "structure",
         },
