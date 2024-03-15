@@ -72,7 +72,7 @@ export default hopeTheme({
     // 加密配置
     encrypt: {
         config: {
-            "/projects/机器人": ["123394"]
+            "/Projects/ailoveworld": ["123394"]
         },
     },
 
