@@ -1,3 +1,12 @@
+---
+title: HIC-18
+comment: false
+editLink: false
+prev: false
+next: false
+---
+
+
 ## 论坛
 
 * [Is it possible to access a custom GPT from the API? - API - OpenAI Developer Forum](https://community.openai.com/t/is-it-possible-to-access-a-custom-gpt-from-the-api/545254)
