@@ -89,7 +89,7 @@ export default hopeTheme({
         components: {
             components: ['VidStack', "Badge", "VPCard"]
         },
-        searchPro:true,
+        searchPro: true,
         blog: true,
         photoSwipe: true,
         // install @waline/client before enabling it
@@ -133,7 +133,7 @@ export default hopeTheme({
             include: true,
 
             // install katex before enabling it
-            // katex: true,
+            katex: true,
 
             // install mathjax-full before enabling it
             // mathjax: true,
