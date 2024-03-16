@@ -13,7 +13,7 @@ export default navbar([
             {
                 text: "Data JPA",
                 link: "Data/JPA/简介"
-            },{
+            }, {
                 text: "Data Redis",
                 link: "Data/Redis/简介"
             },
@@ -180,7 +180,7 @@ export default navbar([
         children: [
             {
                 text: "机器人",
-                link: 'ailoveworld/待办事项/其它',
+                link: 'ailoveworld/简介',
             }
         ]
     },
