@@ -171,6 +171,10 @@ export default navbar([
             {
                 text: "设计",
                 link: 'Design/图片'
+            },
+            {
+                text: "持续集成和交付",
+                link: 'CI_CD/简介'
             }
         ]
     },

@@ -229,6 +229,13 @@ export default sidebar({
             children: "structure",
         },
 
+    ], "/Tools/CI_CD/": [
+        {
+            text: "持续集成和交付",
+            collapsible: true,
+            children: "structure",
+        },
+
     ], "/Tools/Design/": [
         {
             text: "设计",

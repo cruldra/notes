@@ -1,0 +1,21 @@
+@startuml
+participant 开发者 as Dev
+participant "源代码仓库" as Repo
+participant "Jenkins 服务器" as Jenkins
+participant "构建代理" as Builder
+participant "生产服务器" as Prod
+
+Dev -> Repo: 提交代码更改
+Repo -> Jenkins: 触发构建
+Jenkins -> Builder: 检出代码
+Builder -> Builder: 执行构建和测试
+alt 构建成功
+    Builder -> Jenkins: 报告成功
+    Jenkins -> Prod: 部署应用
+    Prod -> Prod: 启动新版本
+    Jenkins -> Dev: 发送成功通知
+else 构建失败
+    Builder -> Jenkins: 报告失败
+    Jenkins -> Dev: 发送失败通知
+end
+@enduml
