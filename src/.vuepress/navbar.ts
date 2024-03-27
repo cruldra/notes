@@ -31,7 +31,15 @@ export default navbar([
             },
             {
                 text: "任务调度",
-                link: "Cron"
+                link: "Cron/简介"
+            },
+            {
+                text: "监控",
+                link: "Monitor/简介"
+            },
+            {
+                text: "日志",
+                link: "Logging/简介"
             }
         ]
     },

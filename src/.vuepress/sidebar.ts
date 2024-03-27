@@ -152,6 +152,24 @@ export default sidebar({
             collapsible: true,
             children: "structure",
         },
+    ], "/Programming/SpringBoot/Monitor/": [
+        {
+            text: "监控",
+            collapsible: true,
+            children: "structure",
+        },
+    ], "/Programming/SpringBoot/Logging/": [
+        {
+            text: "日志",
+            collapsible: true,
+            children: "structure",
+        },
+    ], "/Programming/SpringBoot/Cron/": [
+        {
+            text: "任务调度",
+            collapsible: true,
+            children: "structure",
+        },
     ],
     "/Programming/SpringBoot/": [
         {
