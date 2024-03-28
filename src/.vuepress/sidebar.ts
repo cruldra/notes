@@ -146,6 +146,12 @@ export default sidebar({
             collapsible: true,
             children: "structure",
         },
+    ], "/Programming/SpringBoot/Aop/": [
+        {
+            text: "Aop",
+            collapsible: true,
+            children: "structure",
+        },
     ], "/Programming/SpringBoot/BeanMapper/": [
         {
             text: "对象映射",
@@ -178,7 +184,13 @@ export default sidebar({
             children: "structure",
         },
     ],
-
+    "/Programming/Python/": [
+        {
+            text: "Python",
+            collapsible: true,
+            children: "structure",
+        },
+    ],
     "/JVM/": [
         {
             text: "JVM生态",
@@ -257,6 +269,13 @@ export default sidebar({
     ], "/Tools/Design/": [
         {
             text: "设计",
+            collapsible: true,
+            children: "structure",
+        },
+
+    ], "/Tools/Ai/": [
+        {
+            text: "Ai",
             collapsible: true,
             children: "structure",
         },

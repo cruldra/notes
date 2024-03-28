@@ -7,6 +7,10 @@ export default navbar([
         link: '/JVM/',
     },
     {
+        text: "Python",
+        link: "/Programming/Python/简介"
+    },
+    {
         text: "Spring Boot",
         prefix: "/Programming/SpringBoot/",
         children: [
@@ -40,6 +44,10 @@ export default navbar([
             {
                 text: "日志",
                 link: "Logging/简介"
+            },
+            {
+                text: "Aop",
+                link: "Aop/简介"
             }
         ]
     },
@@ -183,6 +191,10 @@ export default navbar([
             {
                 text: "持续集成和交付",
                 link: 'CI_CD/简介'
+            },
+            {
+                text: "AI",
+                link: 'Ai/简介'
             }
         ]
     },
