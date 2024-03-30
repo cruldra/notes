@@ -259,6 +259,13 @@ export default sidebar({
             children: "structure",
         },
 
+    ],"/Tools/Ai/sdwebui/": [
+        {
+            text: "Stable Diffusion Web UI",
+            collapsible: true,
+            children: "structure",
+        },
+
     ], "/Tools/CI_CD/": [
         {
             text: "持续集成和交付",

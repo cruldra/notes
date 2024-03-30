@@ -68,3 +68,5 @@ cd D:\Workspace\PycharmProjects\MoneyPrinterTurbo
 conda activate MoneyPrinterTurbo
 .\webui.bat
 ```
+
+<VidStack   src="https://zmesc.oss-cn-hangzhou.aliyuncs.com/bandicam/bandicam%202024-03-29%2010-54-25-808.mp4" />

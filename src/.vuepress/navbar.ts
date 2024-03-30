@@ -195,6 +195,10 @@ export default navbar([
             {
                 text: "AI",
                 link: 'Ai/简介'
+            },
+            {
+                text: "Stable Diffusion Web UI",
+                link: 'Ai/sdwebui/简介'
             }
         ]
     },

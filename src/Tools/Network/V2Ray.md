@@ -11,7 +11,9 @@ next: false
 1. 一台境外`vps`
 2. 一个域名,并解析一个`A`记录到`vps`的`ip`
 
-## 使用`docker`一键部署
+## 安装
+
+### 使用`docker`安装
 
 使用[这个镜像](https://github.com/anerg2046/Caddy_V2ray),命令行是:
 
@@ -25,11 +27,53 @@ docker run -d  -p 80:80   -p 443:443 --name=caddy_v2ray --restart=always  \
 anerg/v2ray:latest
 ```
 
-这种方式会占用`80`和`443`端口,适合`vps`仅用作`v2ray`的情况,如果你的`vps`上还有其他`web`服务,则需要[手动安装](#手动安装)
+<CommandBuilder :editors='[
+{
+"label": "容器名称",
+"placeholder": "docker容器的名称",
+"field": "dockerContainerName",
+"type": "text",
+"defaultValue": "v2ray"
+},
+{
+"label": "http端口",
+"placeholder": "映射到caddy容器的80端口",
+"field": "httpPort",
+"type": "number",
+"defaultValue": 80
+},
+{
+"label": "https端口",
+"placeholder": "映射到caddy容器的443端口",
+"field": "httpsPort",
+"type": "number",
+"defaultValue": 443
+},
+{
+"label": "域名",
+"placeholder": "v2ray.xxx.com",
+"field": "domain",
+"type": "text"
+},
+{
+"label": "邮箱",
+"placeholder": "caddy去申请证书的时候会用到",
+"field": "email",
+"type": "text",
+"defaultValue": "cruldra@gmail.com"
+}
+]' cmdTemplate="docker run -d  -p {httpPort}:80   -p {httpsPort}:443 --name={dockerContainerName} --restart=always  \
+-v /app/v2ray/.v2ray:/etc/v2ray:rw   \
+-v /app/v2ray/.caddy:/etc/caddy:rw   \
+-v /app/v2ray/.certificates:/data/caddy/certificates:rw  \
+-e DOMAIN={domain}  \
+-e EMAIL={email}     \
+anerg/v2ray:latest" />
 
-:::tip
-如果既想要一键部署的便利,又想部署其它网站,可以复用上面这个镜像自带的[`cadddy`](https://caddyserver.com/)服务器
-:::
+
+    这种方式会占用`80`和`443`端口,适合`vps`仅用作`v2ray`的情况
+
+如果你的`vps`上还有其他`web`服务,则可以复用上面这个镜像自带的[`cadddy`](https://caddyserver.com/)服务器
 
 ```bash
 # 先停止并删除上面的容器
@@ -68,11 +112,13 @@ chat.cruldra.com {
 docker exec -it caddy_v2ray sh -c 'cd /etc/caddy && caddy reload'
 ```
 
-## 手动安装
+
 
 具体步骤参考[这篇文章](https://codefuturesql.top/post/vps/)
 
-这里面涉及到的几个组件及其作用:
+
+## 核心概念
+
 1. `客户端` - 比如[`clash`](https://github.com/lantongxue/clash_for_windows_pkg/releases/tag/0.20.39),使用[`WebSocket`](https://www.liaoxuefeng.com/wiki/1022910821149312/1103303693824096)+[`tls`](https://www.cloudflare.com/zh-cn/learning/ssl/transport-layer-security-tls/)伪装成一个普通的`https`请求,然后发送给`nginx`
 2. `nginx` - 把收到的用户请求用`websocket`请求转发给本机上的`v2ray`服务
 3. [**v2ray**](https://github.com/v2fly/v2ray-core) - [`VMess`](https://www.v2ray.com/chapter_02/protocols/vmess.html)协议的实现,用于流量转发
@@ -80,3 +126,17 @@ docker exec -it caddy_v2ray sh -c 'cd /etc/caddy && caddy reload'
 下面这张图可以帮助你理解这几个组件的关系:
 
 ![](https://cdn.jsdelivr.net/gh/hhypygy/picx-images-hosting@master/v2ray_tls_websocket_nginx.9gwasm9udf.webp)
+
+
+## 生成订阅链接
+
+`v2ray`安装好以后还需要生成订阅链接给`clash`这类客户端使用
+
+1. 运行`docker logs -f v2ray`命令可以看到`vmess`链接,将其复制下来
+
+![](https://cdn.jsdelivr.net/gh/hhypygy/picx-images-hosting@master/image.2kropbu8tq.webp)
+
+2. 使用[ACL4SSR 在线订阅转换](https://acl4ssr-sub.github.io/)生成`clash`订阅链接
+
+<VidStack   src="https://cruldra-pic.oss-cn-hangzhou.aliyuncs.com/bandicam 2024-03-29 21-19-35-915.mp4" />
+
