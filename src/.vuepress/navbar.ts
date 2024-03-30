@@ -116,6 +116,10 @@ export default navbar([
             {
                 text: "开发、构建和发布",
                 link: 'DevBuildRelease/SemanticRelease'
+            },
+            {
+                text: "模式验证",
+                link: 'Zod/简介'
             }
         ],
     },

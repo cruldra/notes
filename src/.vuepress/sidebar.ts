@@ -47,6 +47,13 @@ export default sidebar({
             collapsible: true,
             children: "structure",
         },
+    ],
+    "/Programming/Frontend/Zod/": [
+        {
+            text: "模式验证",
+            collapsible: true,
+            children: "structure",
+        },
     ], "/Programming/Frontend/Antd/": [
         {
             text: "Antd",
@@ -259,7 +266,7 @@ export default sidebar({
             children: "structure",
         },
 
-    ],"/Tools/Ai/sdwebui/": [
+    ], "/Tools/Ai/sdwebui/": [
         {
             text: "Stable Diffusion Web UI",
             collapsible: true,
