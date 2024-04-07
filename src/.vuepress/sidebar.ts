@@ -41,9 +41,9 @@ export default sidebar({
             children: "structure",
         },
     ],
-    "/Programming/Frontend/Zustand/": [
+    "/Programming/Frontend/ReactLibs/": [
         {
-            text: "Zustand",
+            text: "React常用库",
             collapsible: true,
             children: "structure",
         },

@@ -95,31 +95,12 @@ export default navbar([
                     {
                         text: "Vue",
                         link: 'Vue/简介'
-                    }, {
-                        text: "Antd",
-                        link: 'Antd/简介'
-                    },
+                    }
                 ]
             },
             {
-                text: "状态管理",
-                link: 'Zustand/简介'
-            },
-            {
-                text: "路由系统",
-                link: 'Routing/React Router Dom/简介'
-            },
-            {
-                text: "HTTP客户端",
-                link: 'Http-Client/Axios'
-            },
-            {
-                text: "开发、构建和发布",
-                link: 'DevBuildRelease/SemanticRelease'
-            },
-            {
-                text: "模式验证",
-                link: 'Zod/简介'
+                text: "React常用库",
+                link: 'ReactLibs'
             }
         ],
     },
