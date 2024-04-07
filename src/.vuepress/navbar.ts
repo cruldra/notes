@@ -105,8 +105,8 @@ export default navbar([
         ],
     },
     {
-        text: "解决方案",
-        prefix: '/Solutions/',
+        text: "最佳实践",
+        prefix: '/Best Practices/',
         children: [
             {
                 text: "支付",
@@ -126,6 +126,9 @@ export default navbar([
             }, {
                 text: "标准化",
                 link: 'Standardization/简介'
+            }, {
+                text: "身份认证",
+                link: 'Authentication/简介'
             },
         ]
     },

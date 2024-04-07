@@ -103,3 +103,7 @@ class HiChatEndpoint(private val service: HiChatService) {
 ## 报错记录
 
 * [`Unable to handle the Spring Security Exception because the response is already committed`](https://github.com/spring-projects/spring-security/issues/12758)
+
+## 参考
+
+* [Spring Boot Async REST Controller with SseEmitter](https://howtodoinjava.com/spring-boot/spring-async-controller-sseemitter/)

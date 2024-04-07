@@ -82,48 +82,54 @@ export default sidebar({
             children: "structure",
         },
     ],
-    "/Solutions/Payment/": [
+    "/Best Practices/Payment/": [
         {
-            text: "支付解决方案",
+            text: "支付",
             collapsible: true,
             children: "structure",
         },
     ],
-    "/Solutions/Exception-Handle/": [
+    "/Best Practices/Exception-Handle/": [
         {
             text: "异常处理",
             collapsible: true,
             children: "structure",
         },
     ],
-    "/Solutions/CDN/": [
+    "/Best Practices/CDN/": [
         {
             text: "CDN",
             collapsible: true,
             children: "structure",
         },
-    ], "/Solutions/SMS/": [
+    ], "/Best Practices/SMS/": [
         {
             text: "短信服务",
             collapsible: true,
             children: "structure",
         },
-    ], "/Solutions/OSS/": [
+    ], "/Best Practices/OSS/": [
         {
             text: "对象存储服务",
             collapsible: true,
             children: "structure",
         },
     ],
-    "/Solutions/WebStreams/": [
+    "/Best Practices/WebStreams/": [
         {
             text: "Web流",
             collapsible: true,
             children: "structure",
         },
-    ], "/Solutions/Standardization/": [
+    ], "/Best Practices/Standardization/": [
         {
             text: "标准化",
+            collapsible: true,
+            children: "structure",
+        },
+    ], "/Best Practices/Authentication/": [
+        {
+            text: "身份认证",
             collapsible: true,
             children: "structure",
         },

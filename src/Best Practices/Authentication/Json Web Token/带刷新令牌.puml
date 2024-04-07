@@ -1,0 +1,44 @@
+@startuml
+
+actor User
+participant "Client" as Client
+participant "Auth Server" as AuthServer
+database "Data Store" as DataStore
+
+== 身份验证流程 ==
+
+User -> Client: 1. 提供登录凭证
+Client -> AuthServer: 2. 发送登录凭证
+
+AuthServer -> DataStore: 3. 验证用户凭证
+DataStore ---> AuthServer: 4. 返回验证结果
+
+alt 凭证有效
+    AuthServer -> AuthServer: 5. 生成 Access Token 和 Refresh Token
+    AuthServer --> Client: 6. 发送 Access Token 和 Refresh Token
+    Client -> Client: 7. 存储 Access Token 和 Refresh Token
+
+    loop 请求受保护资源
+        Client -> AuthServer: 8. 发送带 Access Token 的请求
+        AuthServer -> AuthServer: 9. 验证 Access Token
+        alt Access Token 有效
+            AuthServer --> Client: 10. 返回响应数据
+        else Access Token 无效或过期
+            Client -> AuthServer: 11. 使用 Refresh Token 请求新的 Access Token
+            AuthServer -> AuthServer: 12. 验证 Refresh Token
+            alt Refresh Token 有效
+                AuthServer -> AuthServer: 13. 生成新的 Access Token
+                AuthServer --> Client: 14. 返回新的 Access Token
+                Client -> Client: 15. 存储新的 Access Token
+            else Refresh Token 无效或过期
+                AuthServer --> Client: 返回错误信息
+                Client -> Client: 16. 清除 Access Token 和 Refresh Token
+            end
+        end
+    end
+
+else 凭证无效
+    AuthServer --> Client: 返回错误信息
+end
+
+@enduml
