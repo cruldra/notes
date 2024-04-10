@@ -100,8 +100,12 @@ export default navbar([
             },
             {
                 text: "React常用库",
-                link: 'ReactLibs'
-            }
+                link: 'ReactLibs/Antd/简介'
+            },
+            {
+                text: "开发、构建和发布",
+                link: 'DevBuildRelease/SemanticRelease'
+            },
         ],
     },
     {
