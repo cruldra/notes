@@ -291,6 +291,13 @@ export default sidebar({
             children: "structure",
         },
 
+    ], "/Tools/Avd/": [
+        {
+            text: "安卓虚拟设备",
+            collapsible: true,
+            children: "structure",
+        },
+
     ], "/Tools/CI_CD/": [
         {
             text: "持续集成和交付",
