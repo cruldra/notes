@@ -11,14 +11,16 @@ next: false
 | 地址                                                                                | 说明                      | 示例 |
 |-----------------------------------------------------------------------------------|-------------------------|----|
 | [Introduction - G4F Docs](https://g4f.mintlify.app/docs/get-started/introduction) | 提供统一的api来免费访问各种不同的`llm` |    |
+| [PawanOsman/ChatGPT：OpenAI API 免费反向代理](https://github.com/PawanOsman/ChatGPT)     | 免费3.5                   |    |
 
 ## 视频
 
-| 地址                                                                                                                                                                  | 说明                                                                       | 示例                                                                                        |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
-| [harry0703/MoneyPrinterTurbo: 利用大模型，一键生成短视频](https://github.com/harry0703/MoneyPrinterTurbo)                                                                        |                                                                          | ![](https://cdn.jsdelivr.net/gh/hhypygy/picx-images-hosting@master/image.5q76lja6xo.webp) |
-| [lichao-sun/Mora: Mora: More like Sora for Generalist Video Generation](https://github.com/lichao-sun/Mora)                                                         | 类似sora,尽管Mora在视频时长80s方面已经达到了与Sora类似的水平，但Mora在分辨率、物体一致性、运动平滑度等方面仍然存在显着差距。 |                                                                                           |
-| [HumanAIGC/AnimateAnyone: Animate Anyone: Consistent and Controllable Image-to-Video Synthesis for Character Animation](https://github.com/HumanAIGC/AnimateAnyone) |  ![](https://cdn.jsdelivr.net/gh/hhypygy/picx-images-hosting@master/image.8ad0y7z88i.webp)                                                                        |                                                                                           |
+| 地址                                                                                                                                                                                                     | 说明                                                                                        | 示例                                                                                        |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| [harry0703/MoneyPrinterTurbo: 利用大模型，一键生成短视频](https://github.com/harry0703/MoneyPrinterTurbo)                                                                                                           |                                                                                           | ![](https://cdn.jsdelivr.net/gh/hhypygy/picx-images-hosting@master/image.5q76lja6xo.webp) |
+| [lichao-sun/Mora: Mora: More like Sora for Generalist Video Generation](https://github.com/lichao-sun/Mora)                                                                                            | 类似sora,尽管Mora在视频时长80s方面已经达到了与Sora类似的水平，但Mora在分辨率、物体一致性、运动平滑度等方面仍然存在显着差距。                  |                                                                                           |
+| [HumanAIGC/AnimateAnyone: Animate Anyone: Consistent and Controllable Image-to-Video Synthesis for Character Animation](https://github.com/HumanAIGC/AnimateAnyone)                                    | ![](https://cdn.jsdelivr.net/gh/hhypygy/picx-images-hosting@master/image.8ad0y7z88i.webp) |                                                                                           |
+| [PKU-YuanGroup/Open-Sora-Plan: This project aim to reproduce Sora (Open AI T2V model), we wish the open source community contribute to this project.](https://github.com/PKU-YuanGroup/Open-Sora-Plan) | 开源sora                                                                                    |                                                                                           |
 
 ## 语音
 
@@ -45,6 +47,12 @@ next: false
 | 地址                                                                                                                                | 说明                                                                                        | 示例 |
 |-----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|----|
 | [rasbt/LLMs-from-scratch: Implementing a ChatGPT-like LLM from scratch, step by step](https://github.com/rasbt/LLMs-from-scratch) | ![](https://cdn.jsdelivr.net/gh/hhypygy/picx-images-hosting@master/image.54xiz9kxfa.webp) |    |
+
+## 产品
+
+| 地址                                                                                                                                                                                                                                                                                                     | 说明             | 示例 |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|----|
+| [langgenius/dify: Dify is an open-source LLM app development platform. Dify's intuitive interface combines AI workflow, RAG pipeline, agent capabilities, model management, observability features and more, letting you quickly go from prototype to production.](https://github.com/langgenius/dify) | 一个开源的llm应用开发平台 |    |
 
 ## 其它
 

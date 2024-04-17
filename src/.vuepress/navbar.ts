@@ -95,6 +95,10 @@ export default navbar([
                     {
                         text: "Vue",
                         link: 'Vue/简介'
+                    },
+                    {
+                        text: "Nextjs",
+                        link: 'Nextjs/简介'
                     }
                 ]
             },

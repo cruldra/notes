@@ -13,6 +13,12 @@ export default sidebar({
             collapsible: true,
             children: "structure",
         },
+    ], "/Programming/Frontend/Nextjs/": [
+        {
+            text: "Nextjs",
+            collapsible: true,
+            children: "structure",
+        },
     ],
     "/Programming/Frontend/Css/": [
         {
