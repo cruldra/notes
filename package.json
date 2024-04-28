@@ -9,7 +9,6 @@
   },
   "license": "MIT",
   "private": true,
-  "packageManager": "pnpm@8.3.1",
   "scripts": {
     "docs:build": "vuepress-vite build src",
     "docs:clean-dev": "vuepress-vite dev src --clean-cache",
