@@ -298,6 +298,13 @@ export default sidebar({
             children: "structure",
         },
 
+    ], "/Tools/DataFormat/": [
+        {
+            text: "数据格式化",
+            collapsible: true,
+            children: "structure",
+        },
+
     ], "/Tools/CI_CD/": [
         {
             text: "持续集成和交付",

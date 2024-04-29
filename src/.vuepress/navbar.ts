@@ -201,8 +201,12 @@ export default navbar([
                 link: 'Ai/sdwebui/简介'
             },
             {
-                text: "AVD",
+                text: "安卓虚拟机",
                 link: 'Avd/简介'
+            },
+            {
+                text: "数据格式化",
+                link: 'DataFormat/简介'
             }
         ]
     },
