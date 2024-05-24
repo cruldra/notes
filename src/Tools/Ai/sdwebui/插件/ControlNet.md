@@ -11,6 +11,11 @@ next: false
 **[ControlNet](https://github.com/Mikubill/sd-webui-controlnet)插件用于实现对生成的图像进行精准的控制,例如控制人物的姿势和表情**
 
 
+
+## 参考
+
+* [ControlNet：完整指南 - 稳定扩散艺术](https://stable-diffusion-art.com/controlnet/)
+
 ## 其它
 
 
