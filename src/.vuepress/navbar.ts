@@ -48,6 +48,10 @@ export default navbar([
             {
                 text: "Aop",
                 link: "Aop/简介"
+            },
+            {
+                text: "Liquibase",
+                link: "Liquibase/简介"
             }
         ]
     },

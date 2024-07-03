@@ -177,6 +177,12 @@ export default sidebar({
             collapsible: true,
             children: "structure",
         },
+    ], "/Programming/SpringBoot/Liquibase/": [
+        {
+            text: "Liquibase",
+            collapsible: true,
+            children: "structure",
+        },
     ], "/Programming/SpringBoot/BeanMapper/": [
         {
             text: "对象映射",
