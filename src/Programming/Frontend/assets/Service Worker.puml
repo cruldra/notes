@@ -1,0 +1,23 @@
+@startuml
+actor User
+participant Browser
+participant "Service Worker" as SW
+participant Cache
+participant Network
+
+User -> Browser: 访问页面
+Browser -> SW: 拦截请求
+SW -> Cache: 检查缓存
+
+alt 缓存命中
+    Cache --> SW: 返回缓存的资源
+    SW -> Browser: 返回资源
+else 缓存未命中
+    SW -> Network: 发送网络请求
+    Network --> SW: 返回资源
+    SW -> Cache: 更新缓存
+    Cache --> SW: 缓存成功
+    SW -> Browser: 返回资源
+end
+
+@enduml

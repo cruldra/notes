@@ -1,0 +1,17 @@
+@startuml
+actor 用户 as user
+participant "你的网站后台" as backend
+participant "支付宝网关" as alipay
+
+user -> backend: 发起支付请求
+backend -> backend: 创建订单
+backend -> alipay: 请求支付
+alipay -> backend: 生成支付表单页面
+backend -> user: 引导用户到表单页面
+user -> alipay: 进入并提交表单
+alipay -> user: 跳转到支付宝支付页面
+user -> alipay: 完成支付
+alipay -> backend: 回调通知支付结果
+backend -> backend: 验证支付是否成功
+backend -> backend: 进行订单结算
+@enduml

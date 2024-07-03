@@ -1,0 +1,12 @@
+@startuml
+actor "管理人员" as Admin
+participant "插件" as Plugin
+participant "机器人" as Bot
+actor "用户" as User
+autonumber
+Admin -> Bot : 配置插件列表
+User -> Bot : 发送消息
+Bot -> Plugin : 分析消息\n调用插件
+Plugin -> Bot : 输出结果
+Bot -> User : 分析结果\n返回响应
+@enduml

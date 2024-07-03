@@ -1,0 +1,16 @@
+@startuml
+
+participant "CDN边缘节点" as CDN
+participant "源站服务器\n(绑定多个HTTPS域名的IP)" as Server
+
+autonumber
+CDN -> Server: 建立TCP连接
+CDN -> Server: 发送ClientHello（不带SNI）
+Server --> CDN: 返回ServerHello
+Server --> CDN: 哪个证书？\n（我应该发送哪一个？）
+Server -[#red]> CDN: 发送默认/错误证书（因为没提供SNI信息）
+CDN -[#red]> 用户: 证书错误（名称不匹配）
+
+note right of Server: 由于缺少或错误的SNI信息，\n服务器无法决定返回哪个证书。
+
+@enduml

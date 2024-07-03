@@ -1,0 +1,14 @@
+@startuml
+participant Browser
+participant Server
+
+Browser->Server: HTTP GET request to /events
+activate Server
+Server-->Browser: HTTP 200 OK \nHeaders: Content-Type: text/event-stream\n\n
+loop Every time there's a new message
+    Server->Browser: data: New event data\n\n
+end
+note right of Server: Connection stays open\nServer pushes new messages when available
+Browser->Server: (Reconnect if connection is lost)
+deactivate Server
+@enduml

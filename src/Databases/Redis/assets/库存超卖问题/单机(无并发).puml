@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+title 单机__无并发__场景下库存变化(很少见)
+
+
+actor 用户
+participant 订单服务
+database 数据库
+autonumber
+用户 -> 订单服务: 下单
+订单服务 -> 数据库: 检查库存
+alt#Gold #LightGreen 库存足够
+    订单服务 -> 订单服务: 继续后面的逻辑
+    订单服务 -> 数据库: 扣减库存
+    订单服务 -> 用户: 下单成功
+else #Pink 库存不足
+autonumber 3
+    订单服务 -> 用户: 下单失败
+end
+@enduml

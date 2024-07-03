@@ -1,0 +1,17 @@
+@startuml
+participant 用户 as user
+participant "商户系统" as merchant
+participant "支付系统" as payment
+
+user -> merchant : 发起支付请求
+merchant -> merchant : 创建订单
+merchant -> payment : 转发支付请求
+payment -> payment : 生成支付流程
+payment -> merchant : 返回支付流程信息
+merchant -> user : 引导用户进行支付
+user -> payment : 完成支付
+payment -> merchant : 通过回调通知支付结果
+merchant -> merchant : 验证支付是否成功
+merchant -> user : 显示支付结果
+merchant -> merchant : 进行后续处理
+@enduml

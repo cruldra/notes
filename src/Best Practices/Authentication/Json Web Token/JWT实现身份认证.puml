@@ -1,0 +1,40 @@
+@startuml
+
+actor User
+participant "Client" as Client
+participant "Auth Server" as AuthServer
+database "Data Store" as DataStore
+
+== 身份验证流程 ==
+
+User -> Client: 1. 提供登录凭证
+Client -> AuthServer: 2. 发送登录凭证
+
+AuthServer -> DataStore: 3. 验证用户凭证
+DataStore ---> AuthServer: 4. 返回验证结果
+
+alt 凭证有效
+    AuthServer -> AuthServer: 5. 生成 JWT
+    AuthServer --> Client: 6. 发送 JWT
+    Client -> Client: 7. 存储 JWT
+
+    loop 请求受保护资源
+        Client -> AuthServer: 8. 发送带 JWT 的请求
+        AuthServer -> AuthServer: 9. 验证 JWT
+        alt JWT 有效
+            AuthServer --> Client: 10. 返回响应数据
+        else JWT 无效或过期
+            AuthServer --> Client: 10. 返回错误信息
+        end
+    end
+
+else 凭证无效
+    AuthServer --> Client: 返回错误信息
+end
+
+opt 实现刷新机制
+    Client -> AuthServer: 发送刷新请求
+    AuthServer --> Client: 发送新的 JWT
+end
+
+@enduml

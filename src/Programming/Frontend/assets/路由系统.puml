@@ -1,0 +1,42 @@
+@startuml
+skinparam component {
+    Style rectangle
+}
+
+component Router {
+    [Router] - [Route 1]
+    [Router] - [Route 2]
+    [Router] - [Route N]
+}
+
+component "User Interface" {
+    [Link]
+    [Button]
+    [Other Trigger]
+}
+
+[Browser History] <-- [Router] : manages
+[Router] --> [Navigation] : triggers
+[Navigation] --> [User Interface] : via user interaction
+
+[Link] --> [Router] : onClick
+[Button] --> [Router] : onClick
+[Other Trigger] --> [Router] : trigger()
+
+note right of [Route 1] : Defines path and\ncomponent to render
+note right of [Route 2] : Defines path and\ncomponent to render
+note right of [Route N] : Defines path and\ncomponent to render
+
+note right of [Navigation]
+  Navigation occurs when a user interacts
+  with the User Interface (clicks a link,
+  button, etc.) to change the URL.
+end note
+
+note right of [Browser History]
+  The History API is used to interact with
+  the browser's history stack. It allows
+  for navigation without full page reloads.
+end note
+
+@enduml

@@ -1,0 +1,18 @@
+@startuml
+package "Redis Cluster" {
+  [Master Node1] as Master1
+  [Master Node2] as Master2
+  [Master Node3] as Master3
+
+  [Slave Node1] as Slave1
+  [Slave Node2] as Slave2
+  [Slave Node3] as Slave3
+
+  Master1 --> Slave1 : Replication
+  Master2 --> Slave2 : Replication
+  Master3 --> Slave3 : Replication
+
+  note right of Master1 : Master nodes handle\nwrites and reads
+  note right of Slave1 : Slave nodes replicate\nfrom master nodes
+}
+@enduml
