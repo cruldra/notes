@@ -88,16 +88,13 @@ export default navbar([
                 children: [
                     {
                         text: "Css",
-                        prefix: "Css",
                         link: 'Css/简介'
                     }, {
                         text: "Postcss",
-                        prefix: "Postcss",
                         link: 'Postcss/简介'
                     },
                     {
                         text: "React",
-                        prefix: "React",
                         link: 'React/简介'
                     },
                     {
