@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@dongjak-public-types/table": "^3.6.0",
+    "@vue/repl": "^4.3.1",
     "@vuepress/bundler-vite": "2.0.0-rc.14",
     "ant-design-vue": "^4.2.3",
     "katex": "^0.16.9",

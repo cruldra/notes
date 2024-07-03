@@ -2,12 +2,13 @@ import { hopeTheme } from "vuepress-theme-hope";
 
 import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
+import {MR_HOPE_AVATAR} from "./logo.js";
 
 export default hopeTheme({
   hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
 
   author: {
-    name: "Mr.Hope",
+       name: "Cruldra",
     url: "https://mister-hope.com",
   },
 
@@ -32,7 +33,7 @@ export default hopeTheme({
   // 加密配置
   encrypt: {
     config: {
-      "/demo/encrypt.html": ["1234"],
+      "/Projects/ailoveworld": ["123394"]
     },
   },
 
@@ -56,20 +57,26 @@ export default hopeTheme({
     },
 
     components: {
-      components: ["Badge", "VPCard"],
+     components: ['VidStack', "Badge", "VPCard"]
     },
+photoSwipe: true,
 
     // 此处开启了很多功能用于演示，你应仅保留用到的功能。
     mdEnhance: {
+mermaid: true,
       align: true,
       attrs: true,
+vuePlayground: true,
+tasklist: true,
       codetabs: true,
+footnote: true,
       component: true,
       demo: true,
       figure: true,
       imgLazyload: true,
       imgSize: true,
       include: true,
+   katex: true,
       mark: true,
       plantuml: true,
       spoiler: true,
@@ -89,7 +96,6 @@ export default hopeTheme({
       sub: true,
       sup: true,
       tabs: true,
-      tasklist: true,
       vPre: true,
 
       // 在启用之前安装 chart.js
