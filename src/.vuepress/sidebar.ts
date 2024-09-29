@@ -248,6 +248,13 @@ export default sidebar({
             children: "structure",
         },
 
+    ], "/Databases/EBean/": [
+        {
+            text: "EBean",
+            collapsible: true,
+            children: "structure",
+        },
+
     ], "/Tools/Docker/": [
         {
             text: "Docker",

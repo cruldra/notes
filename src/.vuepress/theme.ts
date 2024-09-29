@@ -134,7 +134,7 @@ export default hopeTheme({
             // vuePlayground: true,
 
             // install sandpack-vue3 before enabling it
-            // sandpack: true,
+            sandpack: true,
         },
 
         // 如果你需要 PWA。安装 @vuepress/plugin-pwa 并取消下方注释
