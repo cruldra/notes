@@ -1,5 +1,4 @@
-
-name: 部署文档
+name: Publish Docs
 
 on:
   push:
@@ -7,46 +6,55 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  deploy-gh-pages:
+  Publish-Docs:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    name: Publish Docs
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          # 如果你文档需要 Git 子模块，取消注释下一行
-          # submodules: true
-
-      - name: 设置 pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8
-
-
-      - name: 设置 Node.js
+      - name: Set base environment variable
+        run: |
+          REPO_NAME=$(basename ${{ github.repository }})
+          echo "BASE=$REPO_NAME" >> $GITHUB_ENV
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20
-          cache: pnpm
+          node-version: 18
 
-      - name: 安装依赖
-        run: |
-          corepack enable
-          pnpm install --frozen-lockfile
-
-      - name: 构建文档
-        env:
-          NODE_OPTIONS: --max_old_space_size=8192
-        run: |-
-          pnpm run docs:build
-          > src/.vuepress/dist/.nojekyll
-
-      - name: 部署文档
-        uses: JamesIves/github-pages-deploy-action@v4
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
         with:
-          # 部署文档
-          branch: gh-pages
-          folder: src/.vuepress/dist
+          version: 8
+          run_install: false
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build and generate static files
+        run: pnpm run docs:build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          # Upload entire repository
+          path: './dist'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
