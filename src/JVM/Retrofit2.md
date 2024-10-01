@@ -56,6 +56,18 @@ interface RetrofitExample {
     
     @GET("/v1/{path}")
     fun testPath(@Path("path") path: String): Call<HeygenApiReturns<RetrieveVideoData>>
+    
+    @POST("audio/transcriptions")
+    @Multipart
+    fun speechToText(
+        @Part file: MultipartBody.Part,
+        @Part("model") model: RequestBody,
+        @Part("language") language: RequestBody? = null,
+        @Part("prompt") prompt: RequestBody? = null,
+        @Part("response_format") responseFormat: RequestBody? = null,
+        @Part("temperature") temperature: RequestBody? = null,
+        @Part("timestamp_granularities") timestampGranularities: List<String>? = null,
+    ): Call<String>
 }
 
 ```

@@ -59,3 +59,35 @@ fun main(args: Array<String>) {
 ```bash
 java -jar example.jar print
 ```
+
+## 位置参数
+
+位置参数使用`@CommandLine.Parameters`注解,例如:
+
+```kotlin
+@CommandLine.Command(name = "stt", description = ["语音转文字"])
+class SpeechToText : Runnable {
+    @CommandLine.Parameters(index = "0", description = ["音频文件路径"])
+    lateinit var audioFile: String
+
+    @CommandLine.Option(names = ["-m", "--model"], description = ["模型名称"], required = false)
+    var model: String = "default"
+
+    override fun run() {
+        println("Processing audio file: $audioFile")
+        println("Using model: $model")
+    }
+}
+```
+
+如果要接收任意数量的位置参数,可以像这样:
+
+```kotlin
+class MyCalcParameters {
+    @Parameters(description = "Any number of input numbers")
+    private val files: List<BigDecimal> = ArrayList()
+
+    @Option(names = ["-h", "--help"], usageHelp = true, description = "Display this help and exit")
+    private val help = false
+}
+```
